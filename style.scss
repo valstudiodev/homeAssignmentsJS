@@ -1,9 +1,84 @@
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   border: none;
+
+   box-sizing: border-box;
+}
+*::before,
+*::after {
+   display: inline-block;
+}
+a {
+   text-decoration: none;
+   color: inherit;
+   display: inline-block;
+}
+li {
+   list-style: none;
+}
+img {
+   vertical-align: middle;
+   max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+html,
+body {
+   line-height: 1;
+   height: 100%;
+}
+/* FORM */
+input,
+button,
+textarea {
+   font-family: inherit;
+   font-size: inherit;
+   line-height: inherit;
+   color: inherit;
+   background-color: transparent;
+}
+input,
+textarea {
+   width: 100%;
+}
+button,
+select,
+option {
+   cursor: pointer;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+   appearance: none;
+}
+summary {
+   list-style: none;
+   appearance: none;
+   -webkit-appearance: none;
+}
+address {
+   font-style: normal;
+}
+// ===================================================================
 [class*="__container"] {
   max-width: 1400px;
   padding-inline: 15px;
   margin: 0 auto;
 }
-
+#body-main {
+  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+}
   .wrapper {
    min-height: 100%;
    display: flex;
@@ -14,21 +89,102 @@
       flex-grow: 1;
    }
 }
-
-.page {
-  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
-}
-
+body {}
+// ============================================================
 h1 {
   font-size: 40px;
   text-align: center;
   color: rgb(136, 21, 21);
 }
-
 h3 {
   font-size: 30px;
 }
 
-.link {
-  color: green;
+// ===================================================
+.page__link {  
+  color: #090979;
+  transition: color 0.3s;
+}
+.page__link::before {
+  
+}
+.page__link:hover {
+  color: #00D4FF;
+}
+.page__subtitle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.page__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.page__title,
+.page-task__title,
+.page-lesson__title {
+  margin-bottom: 30px;
+}
+.page__container,
+.page-lesson__container,
+.page-task__container {
+  padding-block: 50px;
+}
+// ===================================================
+.page-lesson__container {
+  max-width: 800px;
+}
+.page-lesson__title {}
+
+.page-lesson__subtitle {
+  margin-bottom: 30px;
+}
+
+.page-lesson__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.page-lesson__item {
+  padding: 30px;
+  background-color: lightgray;
+  border-radius: 20px;
+}
+.page-lesson__link {
+   color: #090979;
+   transition: color 0.3s;
+}
+.page-lesson__link:hover {
+  color: #00D4FF;
+}
+.page-lesson__text {
+}
+
+// ========================================================
+.page-task {
+}
+.page-task__container {
+  
+}
+.page-task__title {
+}
+.page-task__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.page-task__text {
+  background-color: lightgray;
+  padding: 40px;
+  border-radius: 20px;
+}
+.page-task__script {
+  padding: 40px;
+  background-color: lightblue;
+  border-radius: 20px;
 }
