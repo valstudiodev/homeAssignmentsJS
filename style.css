@@ -1,0 +1,35 @@
+[class*=__container] {
+  max-width: 1400px;
+  padding-inline: 15px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+.wrapper > main {
+  flex-grow: 1;
+}
+
+.page {
+  background: linear-gradient(90deg, rgb(42, 123, 155) 0%, rgb(87, 199, 133) 50%, rgb(237, 221, 83) 100%);
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  color: rgb(136, 21, 21);
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.link {
+  color: green;
+}
+
+/*# sourceMappingURL=style.css.map */
