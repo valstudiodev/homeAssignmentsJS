@@ -38,13 +38,12 @@
                 let quantutyApplesItem = Number(prompt("Enter the quantuty of apples, please!"))
 
 
-                let totalMilkPrice = priceItemMilk * quantutyMilkItem
+                let totalMilkPrice = Number((priceItemMilk * quantutyMilkItem).toFixed(2))
+                let totalBreadPrice = Number((priceItemBread * quantutyBreadItem).toFixed(2))
 
-                let totalBreadPrice = priceItemBread * quantutyBreadItem
+                let totalApplesPrice = Number((priceItemApples * quantutyApplesItem).toFixed(2))
 
-                let totalApplesPrice = priceItemApples * quantutyApplesItem
-
-                let totalPrice = totalMilkPrice + totalBreadPrice + totalApplesPrice
+                let totalPrice = Number((totalMilkPrice + totalBreadPrice + totalApplesPrice).toFixed(2))
 
                 document.write(`
                 <h2 style="border-bottom:1px dotted black; width:200px; margin-bottom:10px">SUPERMARKET RECEIPT</h2>
