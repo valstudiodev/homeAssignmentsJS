@@ -33,10 +33,14 @@
 
                 let totalPrice = priceItem * quantityItems
 
+                let itemTax = totalPrice * percentTax / 100
+
                 let totalPriceWithTax = totalPrice + (totalPrice * percentTax / 100)
 
+
                 document.write(`Total price: ${totalPrice} <br>`)
-                document.write(`Total price with tax: ${totalPriceWithTax}`)
+                document.write(`Tax of item: ${itemTax} <br>`)
+                document.write(`Total price: ${totalPriceWithTax}`)
 
               </script>
             </div>
