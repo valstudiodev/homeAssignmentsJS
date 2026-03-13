@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style.css">
-    <title>Task</title>
+    <title>Task 1</title>
   </head>
 
   <body>
@@ -18,16 +18,37 @@
           <div class="page-task__inner">
 
             <div class="page-task__text">
-              <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, aperiam!</p>
+              <p>Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+              </p>
             </div>
 
             <div class="page-task__script">
               <script>
-                let a = 5
-                let b = 5
 
-                let sum = a + b
-                document.write(sum);
+                let numberFirst = parseFloat(prompt("Enter first number"))
+                let numberSecond = parseFloat(prompt("Enter second number"))
+
+                let sum = numberFirst + numberSecond
+                let multiplication = numberFirst * numberSecond
+                let division = numberFirst / numberSecond
+                document.write(`<h2 style="color:red;margin-bottom:10px">Результати обчислень</h2>`);
+                document.write(
+                  `<table style="border-collapse: collapse;border:1px solid black; width: 300px;">
+                      <tr style="border:1px solid black;">
+                        <td>Result summary:</td>
+                        <td>${sum}</td>
+                      </tr>
+                      <tr style="border:1px solid black;">
+                        <td>Result  multiplication:</td>
+                        <td>${multiplication}</td>
+                      </tr>
+                      <tr style="border:1px solid black;">
+                        <td>Result division:</td>
+                        <td>${division}</td>
+                      </tr>
+                    </table>
+                  `
+                )
               </script>
             </div>
 

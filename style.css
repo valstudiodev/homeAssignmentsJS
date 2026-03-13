@@ -1,95 +1,13 @@
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  border: none;
-  box-sizing: border-box;
-}
-
-*::before,
-*::after {
-  display: inline-block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
-
 li {
-  list-style: none;
+  /* list-style: none; */
 }
-
-img {
-  vertical-align: middle;
-  max-width: 100%;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: inherit;
-  font-size: inherit;
-}
-
-html,
-body {
-  line-height: 1;
-  height: 100%;
-}
-
-/* FORM */
-input,
-button,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  background-color: transparent;
-}
-
-input,
-textarea {
-  width: 100%;
-}
-
-button,
-select,
-option {
-  cursor: pointer;
-}
-
-input[type=text],
-input[type=email],
-input[type=tel],
-textarea {
-  appearance: none;
-}
-
-summary {
-  list-style: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-address {
-  font-style: normal;
-}
-
-[class*=__container] {
-  max-width: 1400px;
-  padding-inline: 15px;
-  margin: 0 auto;
-}
-
-#body-main {
-  background: linear-gradient(90deg, rgb(42, 123, 155) 0%, rgb(87, 199, 133) 50%, rgb(237, 221, 83) 100%);
+  margin: 0;
 }
 
 .wrapper {
@@ -101,31 +19,20 @@ address {
 .wrapper > main {
   flex-grow: 1;
 }
-
-h1 {
-  font-size: 40px;
-  text-align: center;
-  color: rgb(136, 21, 21);
-}
-
-h3 {
-  font-size: 30px;
+.page-task__text {
+  max-width: 800px;
 }
 
 .page__link {
   color: #090979;
   transition: color 0.3s;
+  text-decoration: underline;
 }
 
 .page__link:hover {
-  color: #00D4FF;
+  color: #1a5864;
 }
 
-.page__subtitle {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
 
 .page__list {
   display: flex;
@@ -137,62 +44,25 @@ h3 {
 .page__title,
 .page-task__title,
 .page-lesson__title {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
-.page__container,
-.page-lesson__container,
-.page-task__container {
-  padding-block: 50px;
-}
-
-.page-lesson__container {
-  max-width: 800px;
-}
 
 .page-lesson__subtitle {
-  margin-bottom: 30px;
-}
-
-.page-lesson__list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.page-lesson__item {
-  padding: 30px;
-  background-color: lightgray;
-  border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .page-lesson__link {
   color: #090979;
   transition: color 0.3s;
+  text-decoration: underline;
 }
 
 .page-lesson__link:hover {
-  color: #00D4FF;
-}
-
-.page-task__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.page-task__text {
-  background-color: lightgray;
-  padding: 40px;
-  border-radius: 20px;
+  color: #056a7e;
 }
 
 .page-task__script {
-  padding: 40px;
-  background-color: lightblue;
-  border-radius: 20px;
+  padding: 20px;
 }
 
-/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 4</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.</p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+
+                const CM_IN_METR = 100
+                const CM_IN_KM = CM_IN_METR * 1000
+
+                let cm = parseFloat(prompt("Enter centimeters"))
+
+                let meters = cm / CM_IN_METR
+                document.write(`Meters: ${meters} <br>`)
+
+                let kilometers = cm / CM_IN_KM
+                document.write(`Kilometers: ${kilometers}`)
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

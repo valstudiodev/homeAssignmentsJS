@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 2</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.</p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let currentYear = 2026
+
+                let inputYear = Math.floor(prompt("Enter your year of birth, please!"))
+
+                let years = currentYear - inputYear
+
+                document.write(`You have ${years} years old, you are so young!!!`)
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

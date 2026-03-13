@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 6</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 6</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+                Обчислити
+                вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті)
+                використовуючи елементи розмітки.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let priceItemMilk = Number(prompt("Enter the price of milk, please!"))
+                let quantutyMilkItem = Number(prompt("Enter the quantuty of milk, please!"))
+
+                let priceItemBread = Number(prompt("Enter the price of bread, please!"))
+                let quantutyBreadItem = Number(prompt("Enter the quantuty of bread, please!"))
+
+                let priceItemApples = Number(prompt("Enter the price of apples, please!"))
+                let quantutyApplesItem = Number(prompt("Enter the quantuty of apples, please!"))
+
+
+                let totalMilkPrice = priceItemMilk * quantutyMilkItem
+
+                let totalBreadPrice = priceItemBread * quantutyBreadItem
+
+                let totalApplesPrice = priceItemApples * quantutyApplesItem
+
+                let totalPrice = totalMilkPrice + totalBreadPrice + totalApplesPrice
+
+                document.write(`
+                <h2 style="border-bottom:1px dotted black; width:200px; margin-bottom:10px">SUPERMARKET RECEIPT</h2>
+                  <table style="width: 300px;">
+                    <tbody style="text-align:left">
+                      <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                      </tr>
+                      <tr>
+                        <td>Milk</td>
+                        <td>${quantutyMilkItem}</td>
+                        <td>${priceItemMilk} $</td>
+                        <td>${totalMilkPrice} $</td>
+                      </tr>
+                      <tr>
+                        <td>Bread</td>
+                        <td>${quantutyBreadItem}</td>
+                        <td>${priceItemBread} $</td>
+                        <td>${totalBreadPrice} $</td>
+                      </tr>
+                      <tr>
+                        <td>Apples</td>
+                        <td>${quantutyApplesItem}</td>
+                        <td>${priceItemApples} $</td>
+                        <td>${totalApplesPrice} $</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="3"; style="font-weight:600;font-size:20px">Total: </td>
+                        <td ">${totalPrice} $</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <h6 style="border-top:1px dotted black; width:200px; margin-top:10px">Thank you for shopping!</h6>
+                `)
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

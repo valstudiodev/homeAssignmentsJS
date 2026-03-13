@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 3</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 3</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від
+                загальної вартості).
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let priceItem = Math.floor(prompt("Enter the price of item, please!"))
+                let quantityItems = Math.floor(prompt("Enter the quantity of items, please!"))
+                const percentTax = 5
+                // let percentTax = Math.floor(prompt("Enter the percent of tax, please!"))
+
+                let totalPrice = priceItem * quantityItems
+
+                let totalPriceWithTax = totalPrice + (totalPrice * percentTax / 100)
+
+                document.write(`Total price: ${totalPrice} <br>`)
+                document.write(`Total price with tax: ${totalPriceWithTax}`)
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

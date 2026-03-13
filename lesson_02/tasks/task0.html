@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 0</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 0</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Обчислити значення виразів <br> S1=a+12+b <br> S2=(a+b)/(2a) <br> S3=3(a+b)c <br> S4=sin⁡(a/-b)</p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+                let a = parseFloat(prompt("Enter first number"))
+                let b = parseFloat(prompt("Enter second number"))
+
+                let resultOne = a + 12 + b
+                document.write(`S1 = : ${resultOne} <br>`)
+
+                let resultSecond = Math.sqrt((a + b) / (2 * a))
+                document.write(`S2 = : ${resultSecond} <br>`)
+
+                let c = parseFloat(prompt("Enter third number"))
+                let resultThird = Math.cbrt((a + b) * c)
+                document.write(`S3 = : ${resultThird} <br>`)
+
+                let resultFourth = Math.sin((a / -b))
+                document.write(`S4 = : ${resultFourth} <br>`)
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

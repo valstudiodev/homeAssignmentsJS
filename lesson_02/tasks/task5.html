@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 5</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і
+                хвилин.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+
+                let currentSeconds = parseFloat(prompt("How many seconds have passed?"))
+
+                const SEC_IN_MINUTE = 60
+                const SEC_IN_HOUR = SEC_IN_MINUTE * 60
+                const SEC_IN_DAY = SEC_IN_HOUR * 24
+
+                let currentHours = Math.floor(currentSeconds / SEC_IN_HOUR)
+                document.write(`Current hours: ${currentHours} <br>`)
+
+                let currentMinutes = Math.floor(currentSeconds / SEC_IN_MINUTE)
+                document.write(`Current minutes: ${currentMinutes}`)
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

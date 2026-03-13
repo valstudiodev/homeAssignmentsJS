@@ -1,75 +1,4 @@
-*,
-*::before,
-*::after {
-   padding: 0;
-   margin: 0;
-   border: none;
 
-   box-sizing: border-box;
-}
-*::before,
-*::after {
-   display: inline-block;
-}
-a {
-   text-decoration: none;
-   color: inherit;
-   display: inline-block;
-}
-li {
-   list-style: none;
-}
-img {
-   vertical-align: middle;
-   max-width: 100%;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-   font-weight: inherit;
-   font-size: inherit;
-}
-html,
-body {
-   line-height: 1;
-   height: 100%;
-}
-/* FORM */
-input,
-button,
-textarea {
-   font-family: inherit;
-   font-size: inherit;
-   line-height: inherit;
-   color: inherit;
-   background-color: transparent;
-}
-input,
-textarea {
-   width: 100%;
-}
-button,
-select,
-option {
-   cursor: pointer;
-}
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-   appearance: none;
-}
-summary {
-   list-style: none;
-   appearance: none;
-   -webkit-appearance: none;
-}
-address {
-   font-style: normal;
-}
 // ===================================================================
 [class*="__container"] {
   max-width: 1400px;
@@ -77,7 +6,7 @@ address {
   margin: 0 auto;
 }
 #body-main {
-  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+
 }
   .wrapper {
    min-height: 100%;
@@ -104,12 +33,13 @@ h3 {
 .page__link {  
   color: #090979;
   transition: color 0.3s;
+  text-decoration: underline;
 }
 .page__link::before {
   
 }
 .page__link:hover {
-  color: #00D4FF;
+  color: #0c4652;
 }
 .page__subtitle {
   display: flex;
@@ -156,6 +86,7 @@ h3 {
 .page-lesson__link {
    color: #090979;
    transition: color 0.3s;
+   text-decoration: underline;
 }
 .page-lesson__link:hover {
   color: #00D4FF;
