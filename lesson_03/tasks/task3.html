@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 3</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 3</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Випадковим чином генерується число від 1 до 5. Спробуйте вгадати
+                число за 2 спроби.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                const minNumber = 1
+                const maxNumber = 5
+
+                let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber)
+
+                let firstGuess = parseInt(prompt('Enter your number, please', '5'))
+
+                if (firstGuess === randomNumber) {
+                  alert(`Congratulations, you won!!! The number is: ${randomNumber}`)
+                } else {
+                  let secondGuess = parseInt(prompt('Enter your number again, please', '3'))
+
+                  if (secondGuess === randomNumber) {
+                    alert(`You are lucky!!! The number is: ${randomNumber}`)
+                  }
+                  else
+                    alert(`You lost!!! The number is: ${randomNumber}`)
+                }
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

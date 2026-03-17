@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 1</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 1</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводяться імена двох дітей та кількість у них цукерок.
+                Вивести нa екран ім’я тієї дитини, у якої кількість цукерок є більшою, або
+                вивести, що кількість однакова.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                const childNameFirst = prompt('Enter your name, please', 'Sofia')
+                const amountOfCandiesFirst = Number(prompt('Enter amount of candies,please!', '10'))
+
+                const childNameSecond = prompt('Enter your name, please', 'Oleg')
+                const amountOfCandiesSecond = Number(prompt('Enter amount of candies,please!', '5'))
+
+                if (isNaN(amountOfCandiesFirst) || isNaN(amountOfCandiesSecond))
+                  alert('Error!!!Please,enter only numbers!!!')
+                else if (amountOfCandiesFirst > amountOfCandiesSecond)
+                  alert(`${childNameFirst} has more candies than ${childNameSecond}`)
+                else if (amountOfCandiesFirst < amountOfCandiesSecond)
+                  alert(`${childNameSecond} has more candies than ${childNameFirst}`)
+                else
+                  alert('Both children have the same amount of candies!!!')
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task </h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводиться вік людини. Вивести на екран ким він є
+                (дитиною у садочку, школярем, студентом, працівником, пенсіонером).
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let ageOfPerson = parseInt(prompt('Enter your age, please', '35'))
+
+                if (ageOfPerson <= 0)
+                  alert(`You have not been born yet! Your age is: ${ageOfPerson}`)
+                else if (ageOfPerson != 0 && ageOfPerson <= 2)
+                  alert(`You are a baby! Your age is: ${ageOfPerson}`)
+                else if (ageOfPerson >= 3 && ageOfPerson <= 7)
+                  alert(`You are a child! Your age is: ${ageOfPerson}`)
+                else if (ageOfPerson >= 8 && ageOfPerson <= 18)
+                  alert(`You are a schoolchild! Your age is: ${ageOfPerson}`)
+                else if (ageOfPerson >= 19 && ageOfPerson <= 25)
+                  alert(`You are a student! Your age is: ${ageOfPerson}`)
+                else if (ageOfPerson >= 26 && ageOfPerson <= 65)
+                  alert(`You are a worker! Your age is: ${ageOfPerson}`)
+                else
+                  alert(`You are a pensioner! Your age is: ${ageOfPerson}`)
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

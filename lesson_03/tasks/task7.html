@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 7</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 7</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводиться номер місяця. Вивести до якої пори він
+                відноситься.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let monthOfYear = parseInt(prompt('Enter the month of year,please', '1'))
+
+                if (monthOfYear === 12 || monthOfYear === 1 || monthOfYear === 2)
+                  alert('This is Winter!')
+                else if (monthOfYear === 3 || monthOfYear === 4 || monthOfYear === 5)
+                  alert('This is Spring!')
+                else if (monthOfYear === 6 || monthOfYear === 7 || monthOfYear === 8)
+                  alert('This is Summer!')
+                else if (monthOfYear === 9 || monthOfYear === 10 || monthOfYear === 11)
+                  alert('This is Autumn!')
+                else
+                  alert('This period of year does not exist!!!')
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 2</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей
+                не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються
+                гроші, то пропонуємо купити лотерею за 4 грн.</p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let itemPrice = parseFloat(prompt('Enter the item price, please', '10'))
+                console.log(typeof itemPrice);
+
+                let amountMoney = parseFloat(prompt('Enter the amouny of money, please', '100'))
+
+                if (amountMoney >= itemPrice)
+                  alert('Thank you for shopping, you can buy a lottery for 4 UAH!!!')
+                else
+                  alert('Sorry, but you do not have enough money!')
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+  </body>
+</html>

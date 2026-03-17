@@ -22,7 +22,9 @@ h6 {
 .page-task__text {
   max-width: 800px;
 }
-
+.page-lesson__text {
+  max-width: 600px;
+}
 .page__link {
   color: #090979;
   transition: color 0.3s;
