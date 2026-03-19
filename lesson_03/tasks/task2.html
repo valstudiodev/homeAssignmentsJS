@@ -26,15 +26,25 @@
             <div class="page-task__script">
               <script>
 
-                let itemPrice = parseFloat(prompt('Enter the item price, please', '10'))
-                console.log(typeof itemPrice);
+                const itemPrice = parseFloat(prompt('Enter the item price, please!', '100'))
+                const userMoney = parseFloat(prompt('Enter the amount of money, please!', '130'))
+                const lotteryPrice = 4
 
-                let amountMoney = parseFloat(prompt('Enter the amouny of money, please', '100'))
+                if (userMoney < itemPrice) {
+                  const moneyRequired = itemPrice - userMoney
+                  document.write(`You do not have enouhg money!!! You need ${moneyRequired}$`);
+                } else {
+                  const moneyChange = userMoney - itemPrice
 
-                if (amountMoney >= itemPrice)
-                  alert('Thank you for shopping, you can buy a lottery for 4 UAH!!!')
-                else
-                  alert('Sorry, but you do not have enough money!')
+                  if (moneyChange > 0) {
+                    if (moneyChange >= lotteryPrice) {
+                      document.write(`You change ${moneyChange} $ of money! You can buy lottery for ${lotteryPrice}$ `);
+                    } else
+                      document.write(`Your change ${moneyChange} of money!`)
+                  }
+                  else
+                    document.write(`Thanks for shopping!!!`);
+                }
 
               </script>
             </div>

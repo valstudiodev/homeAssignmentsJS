@@ -29,16 +29,13 @@
 
                 let category = prompt('Enter your category, please', 'A')
 
-                switch (category) {
-                  case "A": alert('You can drive by Motorcycle!')
+                switch (category.toUpperCase()) {
+                  case 'a': document.write('You can drive by Motorcycle!')
                     break;
-                  case "B": alert('You can drive by Automobile!')
+                  case 'b': document.write('You can drive by Automobile!')
                     break;
-                  case "C": alert('You can drive by Truck!')
+                  case "c": document.write('You can drive by Truck!')
                     break
-                  default:
-                    alert('You can just walk!')
-                    break;
                 }
 
               </script>

@@ -28,25 +28,20 @@
 
                 let ageOfPerson = parseInt(prompt('Enter your age, please', '35'))
 
-                if (ageOfPerson <= 0)
-                  alert(`You have not been born yet! Your age is: ${ageOfPerson}`)
-                else if (ageOfPerson != 0 && ageOfPerson <= 2)
-                  alert(`You are a baby! Your age is: ${ageOfPerson}`)
-                else if (ageOfPerson >= 3 && ageOfPerson <= 7)
-                  alert(`You are a child! Your age is: ${ageOfPerson}`)
-                else if (ageOfPerson >= 8 && ageOfPerson <= 18)
-                  alert(`You are a schoolchild! Your age is: ${ageOfPerson}`)
-                else if (ageOfPerson >= 19 && ageOfPerson <= 25)
-                  alert(`You are a student! Your age is: ${ageOfPerson}`)
-                else if (ageOfPerson >= 26 && ageOfPerson <= 65)
-                  alert(`You are a worker! Your age is: ${ageOfPerson}`)
+                if (ageOfPerson <= 0 || ageOfPerson > 110)
+                  document.write('Sorry, enter the correct number,please!')
+                else if (ageOfPerson <= 6)
+                  document.write(`You are a kid! Your age is: ${ageOfPerson} `);
+                else if (ageOfPerson <= 18)
+                  document.write(`You are a schoolchild! Your age is: ${ageOfPerson} `);
+                else if (ageOfPerson <= 25)
+                  document.write(`You are a student! Your age is: ${ageOfPerson} `);
+                else if (ageOfPerson <= 65)
+                  document.write(`You are a worker! Your age is: ${ageOfPerson}`);
                 else
-                  alert(`You are a pensioner! Your age is: ${ageOfPerson}`)
-
-
-
-
+                  document.write(`You are a pensioner! Your age is: ${ageOfPerson} `);
               </script>
+
             </div>
 
           </div>

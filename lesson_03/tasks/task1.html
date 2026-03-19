@@ -34,13 +34,15 @@
                 const amountOfCandiesSecond = Number(prompt('Enter amount of candies,please!', '5'))
 
                 if (isNaN(amountOfCandiesFirst) || isNaN(amountOfCandiesSecond))
-                  alert('Error!!!Please,enter only numbers!!!')
+                  document.write('Error!!!Please,enter only numbers!!!')
                 else if (amountOfCandiesFirst > amountOfCandiesSecond)
-                  alert(`${childNameFirst} has more candies than ${childNameSecond}`)
+                  document.write(`${childNameFirst} has more candies than ${childNameSecond}`)
                 else if (amountOfCandiesFirst < amountOfCandiesSecond)
-                  alert(`${childNameSecond} has more candies than ${childNameFirst}`)
+                  document.write(`${childNameSecond} has more candies than ${childNameFirst}`)
                 else
-                  alert('Both children have the same amount of candies!!!')
+                  document.write('Both children have the same amount of candies!!!')
+
+
 
               </script>
             </div>
