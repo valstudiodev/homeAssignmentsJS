@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 4</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Вивести таблицю з 3 рядків і 7 стовпців
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+                  document.write(`<table border='1'>`);
+                  for (let row = 1; row < 4; row++) {
+                    document.write(`<tr>`);
+                    for (let col = 1; col < 8; col++) {
+                      document.write(`<td>${col}</td>`);
+                    }
+                    document.write(`</tr>`);
+                  }
+                  document.write(`</table>`);
+                }
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

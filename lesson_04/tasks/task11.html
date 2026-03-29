@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 11</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 11</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+
+                  let oddCount = 0
+                  let sumNum = 0
+                  const countNumbers = 5
+
+                  const MIN_NUM = parseInt(prompt('Enter the minimum namber', '5'))
+                  const MAX_NUM = parseInt(prompt('Enter the minimum namber', '15'))
+
+                  for (let i = MIN_NUM; i <= MAX_NUM; i++) {
+                    if (i % 2 !== 0) {
+                      sumNum += i
+                      oddCount++
+                      if (oddCount === 5) break
+                    }
+
+                  }
+                  if (oddCount < 5) {
+                    alert(`More than ${oddCount} unpaired numbers have been found. Summ: ${sumNum}`)
+                  } else
+                    alert(`The sum of the first 5 unpaired numbers in the range ${MIN_NUM} - ${MAX_NUM} = ${sumNum}`)
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

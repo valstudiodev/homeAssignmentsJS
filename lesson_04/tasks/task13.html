@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 13</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 13</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів
+                користувач
+                намагається потопити корабель.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+                  const fieldRows = parseInt(prompt('The amount of field', '5'))
+                  const fieldColumns = parseInt(prompt('The amount of field', '5'))
+
+                  const shipBullet = parseInt(prompt('Amount of bullet', '3'))
+
+                  let shipX = 1 + Math.floor(Math.random() * (fieldRows + 1))
+                  let shipY = 1 + Math.floor(Math.random() * (fieldColumns + 1))
+
+                  let win = false
+
+                  for (let i = 0; i < shipBullet; i++) {
+                    let userX = parseInt(prompt('Shoot X', '1'))
+                    let userY = parseInt(prompt('Shoot Y', '1'))
+
+                    if (userX === shipX && userY === shipY) {
+                      alert('You won!!!')
+                      win = true
+                      break
+                    } else
+                      alert(`Left ${shipBullet - i - 1} bullets!`)
+                  }
+                  if (win === false) {
+                    alert(`Ship row ${shipX} , Ship column ${shipY}`)
+                  }
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 14</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 14</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей
+                до тих пір, поки
+                суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно
+                ввести).
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+                  const totalPrice = 200
+                  let paidAmount = 0
+
+                  while (paidAmount < totalPrice) {
+                    let ramaining = totalPrice - paidAmount
+                    alert(`You need to make a deposit ${ramaining} UAH!`);
+                    let deposit = parseFloat(prompt('Put the deposit, plese', '30'))
+
+                    if (deposit > 0) {
+                      paidAmount += deposit
+                    } else
+                      alert('You should put real money!!!')
+                  }
+
+                  let change = paidAmount - totalPrice
+                  alert(`Thank you! Your change:${change} UAH`);
+                }
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

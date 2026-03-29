@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 10</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 10</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+                  let oddCount = 0
+                  let evenCount = 0
+                  const MIN_NUM = parseInt(prompt('Enter the minimum namber', '5'))
+                  const MAX_NUM = parseInt(prompt('Enter the minimum namber', '15'))
+
+                  for (let i = MIN_NUM; i <= MAX_NUM; i++) {
+                    if (i % 2 !== 0) {
+                      oddCount += i
+                    } else
+                      evenCount += i
+                  }
+                  document.write(`Sum odd numbers =${oddCount}<br> `);
+                  document.write(`Sum even numbers = ${evenCount}`);
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

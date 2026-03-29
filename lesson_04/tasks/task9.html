@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 9</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 9</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати
+                confirm).
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+
+                  const MIN_NUM = 1
+                  const MAX_NUM = 10
+                  const userNumber = parseFloat(prompt('Guess a number from 1 to 10, and the computer will try to guess it.', '5'))
+                  let compCount = 0
+
+                  let isGuessed = false
+
+                  while (true) {
+                    let compGuessed = MIN_NUM + Math.floor(Math.random() * MAX_NUM)
+
+                    let compAnswer = confirm(`Your number is ${compGuessed}?`)
+                    compCount++
+
+                    if (compAnswer === true) {
+                      alert(`Computer has won from ${compCount} attempts!`)
+                      isGuessed === true
+                      break
+                    }
+                  }
+
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

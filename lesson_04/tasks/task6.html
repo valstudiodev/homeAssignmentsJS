@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 6</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 6</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+                  let counter = 1;
+                  let rows = 3;
+                  let cols = 3;
+                  let tables = 3;
+
+                  for (let t = 0; t < tables; t++) {
+                    document.write("<table border='3' style='display:inline-block; margin-left:20px' >");
+
+                    for (let i = 0; i < rows; i++) {
+                      document.write("<tr>");
+                      for (let j = 0; j < cols; j++) {
+                        document.write(`<td>${counter}</td>`);
+                        counter++;
+                      }
+                      document.write("</tr>");
+                    }
+
+                    document.write("</table>");
+                  }
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

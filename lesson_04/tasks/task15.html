@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 15</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 15</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+                  let tempSum = 0
+                  let days = 0
+
+                  while (true) {
+                    let inputTemp = prompt('Enter the temperature', '10')
+                    if (inputTemp === null) break
+
+                    inputTemp = parseFloat(inputTemp)
+                    tempSum += inputTemp
+                    days++
+                  }
+
+                  if (days > 0) {
+                    let avarage = tempSum / days
+                    alert(`The avarage temperature for ${days} days ${avarage.toFixed(1)}°C`);
+                  } else
+                    alert('You did not put any temperature!')
+                }
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

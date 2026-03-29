@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 8</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 8</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати
+                confirm).
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                if (confirm('Почати тестування?')) {
+
+
+                  const userNumber = parseFloat(prompt('Guess a number from 1 to 10, and the computer will try to guess it for 3 times.', '5'))
+
+                  let isGuessed = false
+
+                  for (let attempt = 1; attempt <= 3; attempt++) {
+                    let computerGuess = 1 + Math.floor(Math.random() * 10);
+
+                    let answer = confirm(`Attempt №${attempt}: Have you guessed ${computerGuess}?`)
+
+                    if (answer === true) {
+                      alert('Computer: I guessed it!');
+                      isGuessed = true
+                      break
+                    }
+                  }
+
+                  if (!isGuessed) {
+                    alert('Computer: Attempt are done! You have won!')
+                  }
+
+                }
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

@@ -1,39 +1,19 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    "rootDir": "./src",
-    "outDir": "./js",
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-    // Other Outputs
-    "sourceMap": false,
-    "declaration": false,
-    "declarationMap": false,
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "target": "es6", /* Цільова версія JavaScript: 'es5', 'es6', 'es2015', 'esnext' тощо. */
+    "module": "commonjs", /* Система модулів: 'commonjs', 'amd', 'es2015', 'esnext' тощо. */
+    "strict": true, /* Увімкнення всіх строгих перевірок типів. */
+    "esModuleInterop": true, /* Увімкнення підтримки взаємодії з ES-модулями. */
+    "forceConsistentCasingInFileNames": true, /* Заборонити файли з різною регістровою назвою в одній директорії. */
+    "outDir": "./javascript", /* Директорія для збереження згенерованих файлів JavaScript. */
+    "rootDir": "./src", /* Директорія вихідних файлів TypeScript. */
+    "skipLibCheck": true /* Пропуск перевірки типів у файлах з бібліотеками. */
+  },
+  "include": [
+    "src/**/*" /* Включити всі файли з директорії src. */
+  ],
+  "exclude": [
+    "node_modules", /* Виключити директорію node_modules. */
+    "dist" /* Виключити директорію dist. */
+  ]
 }

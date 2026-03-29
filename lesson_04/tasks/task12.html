@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 12</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 12</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як
+                одне з чотирьох
+                зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три
+                других – 200, три
+                третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за
+                номером).
+              </p>
+            </div>
+
+            <div class="page-task__script" style="display: flex; align-items: center;">
+              <script>
+
+
+                let result = ''
+                for (let i = 0; i < 3; i++) {
+                  const randImgIndex = 1 + Math.floor(Math.random() * 4)
+                  result += randImgIndex
+                  document.write(`
+                    <div style='border: 2px solid black; margin-left:-1px'>
+                      <img src="../img/${randImgIndex}.jpeg" style='object-fit:cover; width:300px;height:300px'>  
+                    </div>
+                  `);
+                }
+
+                let prize = 0
+                switch (result) {
+                  case '111':
+                    prize = 100
+                    break
+                  case '222':
+                    prize = 200
+                    break
+                  case '333':
+                    prize = 500
+                    break
+                  case '444':
+                    prize = 1000
+                    break
+                }
+                document.write(`<h1>Prize: ${prize}</h1>`)
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>
