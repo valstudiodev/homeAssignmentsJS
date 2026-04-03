@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 5</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>На екрані виводиться меню: <br>
+                1. Сказати «Привіт». <br>
+                2. Сказати «Зачекай». <br>
+                3. Сказати «До побачення». <br>
+                4. Вихід. <br>
+                Шляхом вибору пунктів меню виводити відповідні повідомлення, поки не буде вибрано пункт номер 4.
+              </p>
+
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let userShoice = 0
+
+                while (userShoice !== 4) {
+                  let userInput = parseInt(prompt("Оберіть пункт меню:\n" +
+                    "1. Сказати «Привіт»\n" +
+                    "2. Сказати «Зачекай»\n" +
+                    "3. Сказати «До побачення»\n" +
+                    "4. Вихід"));
+                  console.log(userInput);
+                  console.log(typeof userInput);
+
+                  switch (userInput) {
+                    case 1: alert('Привіт!')
+                      break;
+                    case 2: alert('Зачекай...')
+                      break;
+                    case 3: alert('До побачення...')
+                      break;
+                    case 4: alert('Вихід...')
+                    default:
+                      throw new Error("Error");
+                      break;
+                  }
+                  console.log(userInput);
+                  console.log(typeof userInput);
+                }
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 12</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 12</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводяться поступово числа. Знайти два найбільші числа. Ввід здійснюється до тих пір, поки
+                різниця між
+                такими числами є більшою за 5.
+              </p>
+
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let max1 = -Infinity;
+                let max2 = -Infinity;
+                let isRunning = true;
+
+                while (isRunning) {
+                  let input = prompt("Введіть число (або Скасувати):");
+
+                  if (input === null) break;
+
+                  let num = parseFloat(input);
+                  if (isNaN(num)) {
+                    alert("Це не число!");
+                    continue;
+                  }
+
+                  // ЛОГІКА ОНОВЛЕННЯ ДВОХ МАКСИМУМІВ
+                  if (num > max1) {
+                    max2 = max1; // Старий лідер стає другим
+                    max1 = num;  // Нове число стає абсолютним лідером
+                  } else if (num > max2) {
+                    max2 = num;  // Нове число просто замінює другого лідера
+                  }
+
+                  // ПЕРЕВІРКА УМОВИ ВИХОДУ (тільки якщо ми вже знайшли хоча б два числа)
+                  if (max1 !== -Infinity && max2 !== -Infinity) {
+                    let difference = Math.abs(max1 - max2);
+                    console.log(`Max1: ${max1}, Max2: ${max2}, Різниця: ${difference}`);
+
+                    if (difference <= 5) {
+                      alert(`Зупинка! Різниця між ${max1} та ${max2} складає ${difference} (<= 5).`);
+                      isRunning = false;
+                    }
+                  }
+                }
+
+                document.write(`Результат: Найбільше = ${max1}, Друге за величиною = ${max2}`);
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

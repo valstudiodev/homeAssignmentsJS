@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 11</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 11</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Комп’ютер загадує випадкове число від 1 до 10. Вгадати число шляхом введеня можливих варіантів. В кінці
+                вивести
+                кількість спроб користувача.
+              </p>
+
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                const compNum = 1 + Math.floor(Math.random() * 10)
+                let userAttempt = 0
+                let isGuessed = true
+
+                while (isGuessed) {
+                  let userInput = prompt('Вгадайте число від 1 до 10 (або натисніть Скасувати):', '3')
+
+                  if (userInput === null) {
+                    alert('Гра завершена. Ви здалися.')
+                    isGuessed = false
+                    break
+                  }
+
+                  let userAnswer = parseInt(userInput)
+                  userAttempt++
+
+                  if (isNaN(userAnswer)) {
+                    alert('Будь ласка, введіть коректне число!')
+                    isGuessed = false
+                    continue
+                  }
+
+                  if (userAnswer === compNum) {
+                    alert(`Вітаємо! Ви вгадали число ${compNum} за ${userAttempt} спроб(и).`)
+                    isGuessed = false
+                  }
+                  else
+                    alert(userAnswer > compNum ? 'Забагато!' : 'Замало!')
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

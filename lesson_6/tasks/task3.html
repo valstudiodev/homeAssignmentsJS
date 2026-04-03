@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 3</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 3</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводиться початкове знчення суми. Поки сума є меншою за 100 додавати до неї числа, які
+                вводяться з
+                клавіатури.</p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let sum = parseFloat(prompt('Введіть початкове значення суми:', '0'));
+
+                if (isNaN(sum)) {
+                  sum = 0;
+                }
+
+                while (sum < 100) {
+                  let nextNumber = parseFloat(prompt(`Поточна сума: ${sum}. Введіть число, щоб додати:`, '0'));
+
+                  if (!isNaN(nextNumber)) {
+                    sum += nextNumber;
+                  } else {
+                    alert("Будь ласка, введіть коректне число.");
+                  }
+                }
+
+                document.write(`Вітаємо! Ліміт досягнуто. Фінальна сума: ${sum}`);
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 9</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 9</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводиться пароль (правильний пароль- 78). Поки пароль не вірний дати можливість
+                користувачу повторно ввести
+                його.
+              </p>
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                const userPassword = 78
+                let currentGuessed = 0
+
+                while (currentGuessed !== userPassword) {
+                  let userInput = prompt('Enter the password!', '0')
+
+                  if (userInput === null) {
+                    alert('You selected cancel..')
+                    break;
+                  }
+
+                  currentGuessed = parseInt(userInput)
+
+                  if (!isNaN(userInput) && currentGuessed === userPassword)
+                    alert("Your password is correct! Welcom to the System...")
+                  else
+                    alert('Your password incorrect! Try again...')
+                }
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

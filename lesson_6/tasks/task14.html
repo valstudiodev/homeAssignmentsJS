@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 14</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 14</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>Морський бій. Комп’ютер випадковим чином розміщує одиночний корамель на полі 5*5. З клавіатури
+                поступово вводяться
+                координати пострілу поки корабель не буде потоплено. Спробуйте відоразити гру графічно.
+              </p>
+
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                // =================== incoming data =========================
+                const xNum = parseInt(prompt('Введіть кількість рядків', '5')) || 5;
+                const yNum = parseInt(prompt('Введіть кількість стовпців', '5')) || 5;
+
+                let bullets = parseInt(prompt('Введіть кількість патронів', '5')) || 5;
+
+                const shipX = 1 + Math.floor(Math.random() * xNum);
+                const shipY = 1 + Math.floor(Math.random() * yNum);
+
+                // create graphic
+                document.write('<h3>Морський бій</h3><table border="1" id="gameTable">');
+                for (let r = 1; r <= xNum; r++) {
+                  document.write('<tr>');
+                  for (let c = 1; c <= yNum; c++) {
+                    document.write(`<td id="cell-${r}-${c}" style="width:30px; height:30px; text-align:center">?</td>`);
+                  }
+                  document.write('</tr>');
+                }
+                document.write('</table>');
+
+                // main game procces
+                while (bullets > 0) {
+                  let inputX = prompt(`Ваші постріли: ${bullets}. Введіть X (ряд):`);
+                  if (inputX === null) break;
+
+                  let inputY = prompt(`Введіть Y (стовпець):`);
+                  if (inputY === null) break;
+
+                  let x = parseInt(inputX);
+                  let y = parseInt(inputY);
+                  bullets--;
+
+                  let targetCell = document.getElementById(`cell-${x}-${y}`);
+
+                  if (x === shipX && y === shipY) {
+                    if (targetCell) targetCell.style.backgroundColor = "red";
+                    alert(`ПЕРЕМОГА! Корабель потоплено. Координати: ${shipX}, ${shipY}`);
+                    break;
+                  } else {
+                    if (targetCell) {
+                      targetCell.style.backgroundColor = "lightgrey";
+                      targetCell.innerText = "•";
+                    }
+
+                    alert(bullets > 0 ? `Мимо! Залишилось патронів: ${bullets}` : "Патрони скінчилися! Ви програли.");
+                  }
+                }
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 6</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 6</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>На екрані виводиться меню: <br>
+                1.Ініціалізація (сума=0) <br>
+                2.Додати 2 <br>
+                3.Додати 3 <br>
+                4.Відняти 2 <br>
+                5.Відняти 3. <br>
+                6.Вивести суму <br>
+                7.Вихід. <br>
+                Шляхом поступового вибору відповідних пунктів спробувати отримати число N, яке вводиться з клавіатури.
+              </p>
+
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+
+                let currentSum = 0
+                let userChoice = 0
+
+                while (userChoice !== 7) {
+                  let userInput = parseInt(prompt(
+                    "1.Ініціалізація (сума=0):\n" +
+                    "2.Додати 2:\n" +
+                    "3.Додати 3:\n" +
+                    "4.Відняти 2:\n" +
+                    "5.Відняти 3:\n" +
+                    "6.Вивести суму:\n" +
+                    "7.Вихід."
+                  ))
+
+
+                  switch (userInput) {
+                    case 1: currentSum = 0
+                      break;
+                    case 2: currentSum += 2
+                      break;
+                    case 3: currentSum += 3
+                      break;
+                    case 4: currentSum -= 2
+                      break;
+                    case 5: currentSum -= 3
+                      break;
+                    case 6: alert(`Current sum = ${currentSum}`)
+                      break;
+                    case 7: alert('Вихід')
+                      break;
+                    default:
+                      throw new Error("Error");
+                      break;
+                  }
+                  console.log(userInput);
+                  console.log(typeof userInput);
+                }
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

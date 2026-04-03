@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 4</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури поступово вводяться числа. Знайти суму перших N(5) парних чисел.</p>
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+
+                let sum = 0
+                let count = 0
+                const N = 5
+
+                while (count < N) {
+                  const userInput = prompt(`Знайдено парних: ${count}/${N}. Введіть число:`);
+                  if (userInput === null) break
+
+                  const userNum = parseInt(userInput);
+
+                  if (!isNaN(userNum) && userNum % 2 === 0) {
+                    count++
+                    sum += userNum
+                  }
+                }
+                alert(`Even numbers ${sum}`)
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>

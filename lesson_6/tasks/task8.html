@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 8</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 8</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__text">
+              <p>З клавіатури вводиться число. Знаходити суму цифр до тих пір. Поки сума не стане більшую за 20.</p>
+
+
+            </div>
+
+            <div class="page-task__script">
+              <script>
+
+                let totalSum = 0
+                let userInput = 0
+                const maxValue = 20
+
+                let isExit = false
+
+                while (totalSum < maxValue) {
+
+                  let userNum = prompt(`Your sum is ${totalSum}, left input ${maxValue - totalSum}`)
+                  let userChoice
+                  if (userNum === null) {
+                    alert("You selected 'Cancel'. Exit.");
+                    isExit = true
+                    break
+                  } else
+                    userChoice = parseInt(userNum)
+
+                  if (!isNaN(userChoice)) {
+                    totalSum += userChoice
+                    userInput++
+                  }
+                }
+                alert(`Your sum ${totalSum}$`)
+                alert(`Your input ${userInput} attempts!`)
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson4.js"></script>
+  </body>
+</html>
