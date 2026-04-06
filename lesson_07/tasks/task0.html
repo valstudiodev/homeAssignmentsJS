@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 0</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 0</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">Створити функцію, яка за номером місяця повертає пору року, до якої
+                    відноситься цей місяць.</h2>`);
+
+                function getPeriodOfYear(month) {
+                  let season
+                  switch (month) {
+                    case 12:
+                    case 1:
+                    case 2: season = "Winter";
+                      break;
+                    case 3:
+                    case 4:
+                    case 5: season = "Spring";
+                      break;
+                    case 6:
+                    case 7:
+                    case 8: season = "Summer";
+                      break;
+                    case 9:
+                    case 10:
+                    case 11: season = "Autumn";
+                      break;
+                    default:
+                      throw new Error("Error");
+                  }
+                  return season
+                }
+                document.write(`The season ${getPeriodOfYear(2)}`)
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson7.js"></script>
+  </body>
+</html>

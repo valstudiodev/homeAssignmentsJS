@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 2</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.</h2>`);
+
+                function isWorkingDay(day) {
+                  switch (day) {
+                    case 1: return "Working day"
+                    case 2: return "Working day"
+                    case 3: return "Working day"
+                    case 4: return "Working day"
+                    case 5: return "Working day"
+                    case 6: return "Day off"
+                    case 7: return "Day off"
+                    default:
+                      throw new Error("Error");
+                  }
+                }
+                document.write(`${isWorkingDay(7)} `);
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson7.js"></script>
+  </body>
+</html>

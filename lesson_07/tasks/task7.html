@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 7</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 7</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                   Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень <br>
+                    (шляхи до зображень передаються у функцію)
+                </h2>`);
+
+                function showRandomImage(img1, img2, img3, img4) {
+
+                  const images = [img1, img2, img3, img4];
+
+                  const randomIndex = Math.floor(Math.random() * images.length);
+
+                  return images[randomIndex];
+                }
+
+                const fileImgName = showRandomImage('1.jpg', '2.jpg', '3.jpg', '4.jpg');
+
+                document.write(`<h3>Ваше випадкове зображення:</h3>`);
+                document.write(`<img src="../img/img${fileImgName}" alt="Random image" style="width:200px;">`);
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson7.js"></script>
+  </body>
+</html>

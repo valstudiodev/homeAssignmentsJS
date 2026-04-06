@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 5</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                    Створити окремі функції, які переводять: <br>
+                  1) Сантиметри у дюйми; <br>
+                  2) Кілограми у фунти; <br>
+                  3) Кілометри у милі.
+                </h2>`);
+
+                const CM_TO_INCH = 0.3937;
+                const KG_TO_POUND = 2.2046;
+                const KM_TO_MILE = 0.6214;
+
+
+                const getInchesFromCm = (cm) => {
+                  if (cm < 0) throw new Error("Error");
+                  return cm * CM_TO_INCH
+                }
+                // function getInchesFromCm(cm) {
+                //   if (cm < 0) throw new Error("Error");
+                //   return cm * CM_TO_INCH
+                // } 
+
+                // =====================================================
+                const getPoundsFromKg = (kg) => {
+                  if (kg < 0) throw new Error("Error");
+                  return kg * KG_TO_POUND
+                }
+                // function getPoundsFromKg(kg) {
+                //   if (kg < 0) throw new Error("Error");
+                //   return kg * KG_TO_POUND
+                // }
+
+                // =====================================================
+                const getMilesFromKm = (km) => {
+                  if (km < 0) throw new Error("Error");
+                  return km * KM_TO_MILE
+                }
+                // function getMilesFromKm(km) {
+                //   if (km < 0) throw new Error("Error");
+                //   return km * KM_TO_MILE
+                // }
+
+                document.write(`Inches: ${getInchesFromCm(400).toFixed(2)} <br>`);
+                document.write(`Pounds: ${getPoundsFromKg(6).toFixed(2)} <br>`);
+                document.write(`Miles: ${getMilesFromKm(230).toFixed(2)}`);
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson7.js"></script>
+  </body>
+</html>

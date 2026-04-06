@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 4</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                    Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: <br>
+                    кількість парних, кількість додатних, кількість більших за 100.
+                </h2>`);
+
+                function getResultOfTreeNumber(a, b, c) {
+                  let even = 0
+                  let positive = 0
+                  let over100 = 0
+
+                  if (a % 2 === 0) even++
+                  if (a > 0) positive++
+                  if (a > 100) over100++
+
+                  if (b % 2 === 0) even++
+                  if (b > 0) positive++
+                  if (b > 100) over100++
+
+                  if (c % 2 === 0) even++
+                  if (c > 0) positive++
+                  if (c > 100) over100++
+
+                  return { even, positive, over100 }
+                }
+                const stats = getResultOfTreeNumber(123, 2, 2)
+                console.log(stats);
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson7.js"></script>
+  </body>
+</html>
