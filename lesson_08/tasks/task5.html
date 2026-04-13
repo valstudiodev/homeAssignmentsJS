@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 5</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                      Дано послідовність оцінок учня. Підрахувати кількість: <br>
+                        1) двійок <br>
+                        2) кількість хороших оцінок (добре, відмінно); <br>
+                        3) кількість оцінок, які нижче середнього. <br>
+                  </h2>
+                `);
+
+                function getInputGradeStudents(grade) {
+                  let arrGrades = []
+                  for (let i = 0; i < grade; i++) {
+                    const inputStr = prompt(`Введіть оцінку №${i + 1} (1-10):`, '8')
+                    if (inputStr === null) break
+
+                    const input = parseInt(inputStr);
+                    if (isNaN(input) || input < 1 || input > 10) {
+                      alert("Помилка! Введіть число від 1 до 10.");
+                      i--;
+                      continue;
+                    }
+
+                    arrGrades.push(input)
+                  }
+                  return arrGrades
+                }
+
+                function getCountGrades(grades, actions) {
+                  let count = 0
+
+                  for (let i = 0; i < grades.length; i++) {
+                    if (actions(grades[i]))
+                      count++
+                  }
+                  return count
+                }
+
+                const isTwoGrade = (grade) => grade === 2 || grade === 1
+                const isAvgGrade = (grade) => grade > 2 && grade < 7
+                const isGoodGrade = (grade) => grade >= 7
+
+                // ==========================================================
+                const studentsGrades = getInputGradeStudents(10)
+                const grades = getCountGrades
+
+
+                const gradesEqualTwo = getCountGrades(studentsGrades, isTwoGrade)
+                const gradesAvarage = getCountGrades(studentsGrades, isAvgGrade)
+                const gradesGood = getCountGrades(studentsGrades, isGoodGrade)
+
+                // ======= screen ======
+                document.write(`Оцінки: ${studentsGrades} <br>`);
+                document.write(`Кількість двійок: ${gradesEqualTwo} <br>`);
+                document.write(`Кількість хороших оцінок: ${gradesGood} <br>`);
+                document.write(`Оцінок нижче середнього: ${gradesAvarage} <br>`);
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

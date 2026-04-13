@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 4</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 4</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                      Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які : <br>
+                          •	починаються на букву «А» (для отримання першої літери можна також звернутися до номера авто як <br>
+                          string ніби як до масиву за номером 0 - autoNum[0]-перша літера); <br>
+                          •	перша і остання літери співпадають; <br>
+                          •	складаються з більше ніш 5 символів;
+                    </h2>
+                `);
+
+
+                // get auto signs
+                function getArrAutoSigns(arrNums) {
+                  let arrNumAuto = []
+
+                  for (let i = 0; i < arrNums; i++) {
+                    const input = prompt('Enter the auto signs', 'ABA-4827')
+                    if (input === null) break
+                    arrNumAuto.push(input)
+                  }
+                  return arrNumAuto
+                }
+
+                // filter
+                function filterWords(arr, action) {
+                  let result = []
+
+                  for (let i = 0; i < arr.length; i++) {
+                    if (action(arr[i])) {
+                      result.push(arr[i])
+                    }
+                  }
+                  return result
+                }
+
+                // check first word
+                function checkIfStartsWithA(word) {
+                  let firstChar = word[0]
+
+                  return firstChar.toLowerCase() === 'a'
+                }
+
+                // get last symbol
+                function getLastSymbolOfWord(symbol) {
+                  let lastSymbol = symbol[symbol.length - 1]
+
+                  return lastSymbol
+                }
+
+                // word has length more than 5
+                function isLongWord(word) {
+                  return word.length > 5;
+                }
+
+                // compare First And Last Symbols
+                function compareFirstAndLastSymbols(word) {
+                  if (word.length === 0) return false
+
+                  let firstChar = word[0]
+
+                  let lastChar = word[word.length - 1]
+
+                  return firstChar.toLowerCase() === lastChar.toLowerCase()
+                }
+
+                // ==========================================================
+                const arrAutoSigns = getArrAutoSigns(3)
+                const myRule = checkIfStartsWithA
+                const lastSymbolWord = getLastSymbolOfWord
+                const checkLength = isLongWord;
+                const compare = compareFirstAndLastSymbols
+
+
+                const wordWithA = filterWords(arrAutoSigns, myRule)
+                const lastLetter = filterWords(arrAutoSigns, lastSymbolWord)
+                const wordLengthMore5 = filterWords(arrAutoSigns, isLongWord)
+                const matchedWords = filterWords(arrAutoSigns, compare)
+
+                // screen
+                document.write(`всі номери автомобілів : ${arrAutoSigns} <br>`);
+                document.write(`Починаються на 'А': ${wordWithA} <br> `);
+                document.write(`Однакові перша і остання: ${matchedWords} <br> `);
+                document.write(`Довші за 5 символів: ${wordLengthMore5} <br> `);
+
+                // console
+                console.log(wordWithA);
+                console.log(lastLetter);
+                console.log(wordLengthMore5);
+                console.log(matchedWords);
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

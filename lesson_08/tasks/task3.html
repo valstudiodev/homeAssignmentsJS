@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 3</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 3</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                     Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+                  </h2>
+                `);
+
+                function getStudentsNames(nameStudent) {
+                  let arrayNames = []
+                  for (let i = 0; i < nameStudent; i++) {
+                    let inputName = prompt('Enter the student name', 'Alex')
+                    if (inputName === null) break
+                    arrayNames.push(inputName)
+                  }
+                  return arrayNames
+                }
+
+                function countOccurrences(array, rule) {
+                  let count = 0;
+                  for (let i = 0; i < array.length; i++) {
+                    if (rule(array[i])) {
+                      count++;
+                    }
+                  }
+                  return count;
+                }
+
+                function isIvan(name) {
+                  return name.toLowerCase() === 'ivan';
+                }
+
+                function isRobert(name) {
+                  return name.toLowerCase() === 'robert';
+                }
+
+                const arrayStudents = getStudentsNames(5)
+                const namesIvan = countOccurrences(arrayStudents, isIvan)
+
+                document.write(`Students: ${arrayStudents} <br>`);
+                document.write(`Count of name Ivan = ${namesIvan} <br>`);
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

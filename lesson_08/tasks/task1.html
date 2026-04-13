@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 1</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 1</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                      Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати  <br>
+                      до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), <br>
+                      хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+                  </h2>
+                `);
+
+
+                function getGrades(count) {
+                  let grades = []
+                  for (let i = 0; i < count; i++) {
+                    const input = parseFloat(prompt(`Введіть оцінку № ${i + 1}`, '10'))
+                    if (isNaN(input) || input < 1 || input > 10) throw new Error("Error");
+                    grades.push(input)
+                  }
+                  return grades
+                }
+                const myGrades = getGrades(5)
+                console.log(myGrades);
+
+                // =================================
+                function getAvgGrade(grade) {
+                  let sum = 0
+
+                  for (let i = 0; i < grade.length; i++) {
+                    sum += grade[i]
+                  }
+                  return sum / grade.length
+                }
+                const avgGrade = getAvgGrade(myGrades)
+                console.log(avgGrade.toFixed(1));
+
+                // =================================
+                function getMinGrade(grades) {
+                  let min = grades[0];
+                  for (let i = 1; i < grades.length; i++) {
+                    if (grades[i] < min) {
+                      min = grades[i];
+                    }
+                  }
+                  return min;
+                }
+                const minGrade = getMinGrade(myGrades);
+
+                // =================================
+                function getCategoryByMinGrade(minGrade) {
+                  let category;
+
+                  if (minGrade <= 3) category = "Двійочник";
+                  else if (minGrade === 4 || minGrade === 5 || minGrade === 6) category = "Трійочник";
+                  else if (minGrade === 7 || minGrade === 8 || minGrade === 9) category = "Хорошист";
+                  else category = "Відмінник";
+
+                  return category;
+                }
+                const userCategory = getCategoryByMinGrade(minGrade);
+
+                document.write(`
+                      Оцінки: ${myGrades.join(', ')} <br>
+                      Середній бал: ${avgGrade.toFixed(1)} <br>
+                      Категорія: <strong>${userCategory}</strong>
+                  `);
+
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

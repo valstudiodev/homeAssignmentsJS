@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 2</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                      Дано масив, який зберігає кількість відвідувачів магазину протягом тижня.
+                      Вивести на екран: <br>
+                      номери днів, протягом яких кількість відвідувачів була меншою за 20; <br>
+                      номери днів, коли кількість відвідувачів була мінімальною; <br>
+                      номери днів, коли кількість відвідувачів була максимальною; <br>
+                      загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+                  </h2>
+                `);
+
+
+                function getQuantityOfVisitorsPerDay(numDays) {
+                  let arrInputVisitors = []
+
+                  for (let i = 0; i < numDays; i++) {
+                    const input = prompt(`Day ${i + 1}`, '100')
+                    if (input === null) break
+                    arrInputVisitors.push(Number(input))
+                  }
+                  return arrInputVisitors
+                }
+                const quantityVisitors = getQuantityOfVisitorsPerDay(7)
+                console.log(quantityVisitors);
+
+                function getDaysLessThan20(days) {
+                  let arrDaysLess20 = []
+
+                  for (let i = 0; i < days.length; i++) {
+                    if (days[i] < 20) {
+                      arrDaysLess20.push(i + 1)
+                    }
+                  }
+                  return arrDaysLess20
+                }
+                const daysLess20 = getDaysLessThan20(quantityVisitors)
+                console.log(daysLess20);
+
+                function getMinDaysVisitors(minNum) {
+                  let min = minNum[0]
+                  let result = []
+
+                  for (let i = 1; i < minNum.length; i++) {
+                    if (minNum[i] < min) min = minNum[i]
+                  }
+
+                  for (let i = 0; i < minNum.length; i++) {
+                    if (minNum[i] === min) {
+                      result.push(i + 1);
+                    }
+                  }
+
+                  return result
+                }
+                const minVisitorsperDay = getMinDaysVisitors(quantityVisitors)
+                console.log(minVisitorsperDay);
+
+                function getMaxDaysVisitors(maxNum) {
+                  let max = maxNum[0]
+                  let result = []
+
+                  for (let i = 1; i < maxNum.length; i++) {
+                    if (maxNum[i] > max)
+                      max = maxNum[i]
+                  }
+
+                  for (let i = 0; i < maxNum.length; i++) {
+                    if (maxNum[i] === max) {
+                      result.push(i + 1);
+                    }
+                  }
+
+                  return result
+                }
+                const maxVisitorsPerDay = getMaxDaysVisitors(quantityVisitors)
+                console.log(maxVisitorsPerDay);
+
+                function getSumVisitorsForWorkingDays(workingDays) {
+                  let totalSum = 0
+
+                  for (let i = 0; i < 5; i++) {
+                    totalSum += workingDays[i]
+                  }
+                  return totalSum
+                }
+                const sumVisitorsWorkDays = getSumVisitorsForWorkingDays(quantityVisitors)
+                console.log(sumVisitorsWorkDays);
+
+                function getSumVisitorsForWeekends(weekends) {
+                  let totalSum = 0
+
+                  for (let i = 5; i < weekends.length; i++) {
+                    totalSum += weekends[i]
+                  }
+
+                  return totalSum
+                }
+                const sumVisitorsForWeekends = getSumVisitorsForWeekends(quantityVisitors)
+                console.log(sumVisitorsForWeekends);
+
+
+                document.write(`All visitors for each day : ${quantityVisitors} <br> `);
+                document.write(`Days has less visitors than 20 persons: ${daysLess20} <br>`);
+                document.write(`Minimum day has visitors: ${minVisitorsperDay} <br>`);
+                document.write(`Maximum day has visitors: ${maxVisitorsPerDay}<br>`);
+                document.write(`Visitors for working days: ${sumVisitorsWorkDays} <br>`);
+                document.write(`Visitors for weekends: ${sumVisitorsForWeekends} `);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>
