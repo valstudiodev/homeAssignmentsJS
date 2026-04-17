@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 8</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 8</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                     Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+                  </h2>
+                `);
+
+
+                function getArrAutoSigns(arrNums) {
+                  let arrNumAuto = []
+
+                  for (let i = 0; i < arrNums; i++) {
+                    const input = prompt('Enter the auto signs', 'ABA-4827')
+                    if (input === null) break
+                    arrNumAuto.push(input)
+                  }
+                  return arrNumAuto
+                }
+                const arrAutoSigns = getArrAutoSigns(5)
+
+                let arrAutoSignsWithStartA = arrAutoSigns.filter(sign =>
+                  sign[0].toLowerCase() === 'a'
+                )
+
+                document.write(`Auto signs starts with A : ${arrAutoSignsWithStartA} <br>`);
+
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

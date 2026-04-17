@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 5</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                     Дано масив елементів. Знайти добуток додатних елементів
+                  </h2>
+                `);
+
+
+                function getInputNumbersUser(num) {
+                  let arrNums = []
+
+                  for (let i = 0; i < num; i++) {
+                    const input = prompt('Enter the numbers', '10')
+                    if (input === null) break
+                    arrNums.push(Number(input))
+                  }
+                  return arrNums
+                }
+                const inputUserNum = getInputNumbersUser(3)
+
+                function getMultiplePositiveResult(nums) {
+
+                  let count = 1
+
+                  for (const num of nums) {
+                    if (num > 0) {
+                      count *= num
+                    }
+                  }
+                  return count
+                }
+                const resultPositive = getMultiplePositiveResult(inputUserNum)
+
+                document.write(`добуток додатних елементів : ${resultPositive}`)
+                console.log(resultPositive);
+
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

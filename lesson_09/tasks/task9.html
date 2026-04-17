@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 9</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 9</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                      Дано масив імен. Сформувати масив з перших літер цих імен.
+                  </h2>
+                `);
+
+
+                let arrNames = ['Oleg', 'Stas', 'Devid', 'Jonh', 'Lucy']
+
+                let newArr = arrNames.map(name => name[0])
+
+                document.write(`${newArr} <br>`)
+                console.log(newArr);
+
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>

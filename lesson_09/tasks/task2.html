@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>Task 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-task">
+        <div class="page-task__container">
+          <h1 class="page-task__title">Task 2</h1>
+          <div class="page-task__inner">
+
+            <div class="page-task__script">
+              <script>
+
+                document.write(`<h2 style="margin-bottom:50px;">
+                      Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
+                  </h2>
+                `);
+
+
+                const input = parseInt(prompt('Enter the number', '6'));
+
+                const arrHalf = Math.floor(input / 2);
+
+                const newArrNums = new Array(input)
+
+                newArrNums.fill(1, 0, arrHalf)
+                newArrNums.fill(7, arrHalf)
+
+                document.write(newArrNums);
+
+
+
+
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script type="module" src="../../javascript/lesson8.js"></script>
+  </body>
+</html>
