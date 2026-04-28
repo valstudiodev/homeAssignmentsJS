@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6", /* Цільова версія JavaScript: 'es5', 'es6', 'es2015', 'esnext' тощо. */
+    "target": "es2023", /* Цільова версія JavaScript: 'es5', 'es6', 'es2015', 'esnext' тощо. */
     "module": "commonjs", /* Система модулів: 'commonjs', 'amd', 'es2015', 'esnext' тощо. */
     "strict": true, /* Увімкнення всіх строгих перевірок типів. */
     "esModuleInterop": true, /* Увімкнення підтримки взаємодії з ES-модулями. */
