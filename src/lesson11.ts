@@ -255,7 +255,6 @@ function sortByMax(arr: number[][]): number[][] {
 }
 const elementsInDescendingOrder = sortByMax(storeProfitData)
 console.log(elementsInDescendingOrder);
-document.write(`${elementsInDescendingOrder}`)
 
 // ========= 9)упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох
 // рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло,
