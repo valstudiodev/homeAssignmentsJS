@@ -321,221 +321,73 @@ if (targetIndex !== -1) {
 // Задача 7. Сформувати двовимірний масив (4*8) з номерами днів (описати окремий тип для днів).
 // Заповнити його випадковим чином. Підрахувати для кожного рядка кількість неділь.
 // =================================================================================================================================
-document.write(`<h2 style="font-size:40px;"> Задача 7</h2>`);
+// document.write(`<h2 style="font-size:40px;"> Задача 7</h2>`);
 
-type DayNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7
+// type DayNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7
 
-function generateField(rowCount: number, colCount: number): DayNumber[][] {
-  const matrix: DayNumber[][] = []
+// function generateField(rowCount: number, colCount: number): DayNumber[][] {
+//   const matrix: DayNumber[][] = []
 
-  for (let row = 0; row < rowCount; row++) {
-    const rowArr: DayNumber[] = []
-    for (let col = 0; col < colCount; col++) {
-      rowArr.push(1 + Math.floor(Math.random() * 7)) as DayNumber;
-    }
-    matrix.push(rowArr);
-  }
-  return matrix;
-}
-function countSundays(arr: DayNumber[][]): number[] {
-  let sundaysDays: number[] = []
-  const sunday: DayNumber = 7
-
-  for (let row = 0; row < arr.length; row++) {
-    let countSundays = 0
-
-    for (let col = 0; col < arr[row].length; col++) {
-      if (arr[row][col] === sunday) {
-        countSundays++
-      }
-    }
-    sundaysDays.push(countSundays)
-  }
-  return sundaysDays;
-}
-function printTable(arr: DayNumber[][]): void {
-  document.write(`<table border="2px">`);
-  for (let i = 0; i < arr.length; i++) {
-    document.write(`<tr>`);
-    for (let j = 0; j < arr[i].length; j++) {
-      const color = arr[i][j] === 7 ? 'style="background-color: #ffcccc; text-align:center"' : '';
-      document.write(`<td ${color} style="padding: 5px; width: 30px; text-align:center">${arr[i][j]}</td>`);
-    }
-    document.write(`</tr>`);
-  }
-  document.write(`</table>`);
-}
-function printSundaysCount(arr: number[]): void {
-  arr.forEach((count, index) => document.write(`Row ${index + 1}: ${count} sundays <br>`));
-}
-function runMain() {
-  const matrixField = generateField(4, 8);
-
-  printTable(matrixField);
-
-  const sundayStats = countSundays(matrixField);
-
-  printSundaysCount(sundayStats);
-}
-runMain();
-
-
-
-
-
-
-
-// let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-// function binarySearchBoolean(arr: number[], searchElement: number) {
-//   let start = 0
-//   let end = arr.length - 1
-
-//   while (start <= end) {
-//     const middle = Math.floor((start + end) / 2)
-//     if (arr[middle] === searchElement) return middle
-//     if (arr[middle] < searchElement) start = middle + 1
-//     if (arr[middle] > searchElement) end = middle - 1
-//   }
-//   return -1
-// }
-// // const searchElement = binarySearchBoolean(nums, 4);
-// // console.log(searchElement);
-
-
-// function binarySearch(arr: number[], searchElement: number, start: number, end: number) {
-//   if (start <= end) {
-//     const middle = Math.floor((start + end) / 2)
-//     if (arr[middle] === searchElement) return middle
-//     if (arr[middle] < searchElement)
-//       return binarySearch(arr, searchElement, middle + 1, end)
-//     if (arr[middle] > searchElement)
-//       return binarySearch(arr, searchElement, start, middle - 1)
-//     else return -1
-//   }
-// }
-// const search = binarySearch(nums, 5, 0, nums.length - 1)
-// console.log(search);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const users = [
-//   {
-//     id: 1,
-//     name: "Val",
-//     age: 34,
-//     balance: 1000,
-//     active: true,
-//     getInfo() {
-//       return `${this.name} (${this.age}) - ${this.balance}`;
-//     },
-//     toString() {
-//       return `${this.name}: ${this.balance}`;
-//     },
-//     valueOf() {
-//       return this.balance;
+//   for (let row = 0; row < rowCount; row++) {
+//     const rowArr: DayNumber[] = []
+//     for (let col = 0; col < colCount; col++) {
+//       rowArr.push(1 + Math.floor(Math.random() * 7)) as DayNumber;
 //     }
-//   },
-
-//   {
-//     id: 2,
-//     name: "John",
-//     age: 28,
-//     balance: 800,
-//     active: false,
-//     getInfo() {
-//       return `${this.name} (${this.age}) - ${this.balance}`;
-//     },
-//     toString() {
-//       return `${this.name}: ${this.balance}`;
-//     },
-//     valueOf() {
-//       return this.balance;
-//     }
-//   },
-
-//   {
-//     id: 3,
-//     name: "Val",
-//     age: 22,
-//     balance: 500,
-//     active: true,
-//     getInfo() {
-//       return `${this.name} (${this.age}) - ${this.balance}`;
-//     },
-//     toString() {
-//       return `${this.name}: ${this.balance}`;
-//     },
-//     valueOf() {
-//       return this.balance;
-//     }
+//     matrix.push(rowArr);
 //   }
-// ];
-
-// // 1. Виведи info кожного користувача через getInfo()
-// const userInfo = users.forEach(user => console.log(user.getInfo()));
-
-// // 2. Знайди суму всіх balance
-// const totalBalance = users.reduce((prevSum, user) => prevSum += user.valueOf(), 0);
-// console.log(totalBalance);
-
-// // 3. Знайди першого користувача з ім’ям "Val"
-// const findUser = users.find((user) => user.name.toLowerCase() === 'val')
-// console.log(findUser);
-
-// // 4. Отримай масив тільки active === true
-// const activeUsers = [...users]
-//   .filter((user) => user.active === true)
-// console.log(activeUsers);
-
-
-// // 5. Збільш balance всім на +100
-// const updatedUsers = users.map(user => ({
-//   ...user,
-//   balance: user.balance + 100
-// }));
-
-// console.log(updatedUsers);
-
-// // 6. Додай нового користувача (будь-які дані)
-// const newUser = {
-//   id: 4,
-//   name: 'Vadim',
-//   age: 30,
-//   balance: 700,
-//   active: false,
-//   getInfo() {
-//     return `${this.name} (${this.age}) - ${this.balance}`;
-//   },
-//   toString() {
-//     return `${this.name}: ${this.balance}`;
-//   },
-//   valueOf() {
-//     return this.balance;
-//   },
+//   return matrix;
 // }
-// // const updateUsers = [...users, newUser];
-// // console.log(updateUsers);
-// users.push(newUser);
-// console.log(users);
+// function countSundays(arr: DayNumber[][]): number[] {
+//   let sundaysDays: number[] = []
+//   const sunday: DayNumber = 7
 
-// // 7. Видали користувача з id = 2
-// const updateUsers = users.filter((user) => user.id !== 2)
-// console.log(updateUsers);
+//   for (let row = 0; row < arr.length; row++) {
+//     let countSundays = 0
+
+//     for (let col = 0; col < arr[row].length; col++) {
+//       if (arr[row][col] === sunday) {
+//         countSundays++
+//       }
+//     }
+//     sundaysDays.push(countSundays)
+//   }
+//   return sundaysDays;
+// }
+// function printTable(arr: DayNumber[][]): void {
+//   document.write(`<table border="2px">`);
+//   for (let i = 0; i < arr.length; i++) {
+//     document.write(`<tr>`);
+//     for (let j = 0; j < arr[i].length; j++) {
+//       const color = arr[i][j] === 7 ? 'style="background-color: #ffcccc; text-align:center"' : '';
+//       document.write(`<td ${color} style="padding: 5px; width: 30px; text-align:center">${arr[i][j]}</td>`);
+//     }
+//     document.write(`</tr>`);
+//   }
+//   document.write(`</table>`);
+// }
+// function printSundaysCount(arr: number[]): void {
+//   arr.forEach((count, index) => document.write(`Row ${index + 1}: ${count} sundays <br>`));
+// }
+// function runMain() {
+//   const matrixField = generateField(4, 8);
+
+//   printTable(matrixField);
+
+//   const sundayStats = countSundays(matrixField);
+
+//   printSundaysCount(sundayStats);
+// }
+// runMain();
 
 
-// // 8. toString
-// const message = updateUsers.forEach(user => console.log(user.toString()));
+
+
+
+
+
+
+
+
+
+
+
