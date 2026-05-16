@@ -20,27 +20,23 @@ class Backpack {
       }
       this.#items.push(newItem);
       this.#weight += itemWeight;
-      console.log(`✅ Додано: ${name} (${itemWeight}кг)`);
+      console.log(` Додано: ${name} (${itemWeight}кг)`);
     } else
-      console.error(`❌ Неможливо додати "${name}". Перевищення ліміту ваги!`);
+      throw new Error(`Неможливо додати "${name}". Перевищення ліміту ваги!`);
   }
   get showWeight(): number {
     return this.#weight
   }
-  get showItems(): ItemType[] {
-    return [...this.#items]
-  }
   toString() {
-    return this.#items.map(item => `${item.name} (${item.weight}kg)`).join(', ')
+    return this.#items.map(item => `${item.name} (${item.weight}kg)`).join(', ');
   }
 }
 const myBackpack = new Backpack()
-myBackpack.addItem('Laptop', 3);
+myBackpack.addItem('Laptop', 5);
 myBackpack.addItem('Books', 4);
 myBackpack.addItem('Bottle of water', 1);
-console.log(`Загальна вага: ${myBackpack.showWeight}`);
-console.log(myBackpack.showItems);
-console.log(myBackpack.toString());
+document.write(`<p>Загальна вага: ${myBackpack.showWeight}</p>`);
+document.write(myBackpack.toString());
 
 
 
