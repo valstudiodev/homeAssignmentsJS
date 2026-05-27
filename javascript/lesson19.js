@@ -12,6 +12,7 @@ function createTitle(titleText, className) {
 // При кліку на якийсь із них усі наступні повинні бути зафарбовані у червоний колір.
 // =========================================================================
 const title1 = createTitle('Задача 1', 'title-1');
+title1.style.fontSize = '40px';
 const container1 = document.querySelector(`.task-1`);
 container1?.before(title1);
 class GenerateDivs {
@@ -69,6 +70,7 @@ itemsDiv.initMain();
 // автоматично заповнювати інші (усі попередні у спадному порядку(кожен попередній 
 // має значення на 1 менше за наступний), усі наступні на 1 більше (кожен наступне на 1 більше за попереднього)
 const title2 = createTitle('Задача 2', 'title-2');
+title2.style.fontSize = '40px';
 const container2 = document.querySelector(`.task-2`);
 container2?.before(title2);
 class GenerateInputs {
@@ -135,6 +137,7 @@ input.render();
 // При натисненні на кнопку нумеровані списки з парною кількістю елементів зафарбувати у зелений колір, інші у червоний.
 // =========================================================================
 const title3 = createTitle('Задача 3', 'title-3');
+title3.style.fontSize = '40px';
 const container3 = document.querySelector(`.task-3`);
 container3?.before(title3);
 class GenerateNumberedLists {
@@ -205,6 +208,7 @@ list1.render();
 // відповідно доданого для цього атрибута).
 // =========================================================================
 const title4 = createTitle('Задача 4', 'title-4');
+title4.style.fontSize = '40px';
 const container4 = document.querySelector(`.task-4`);
 container4?.before(title4);
 class TableManager {
@@ -287,6 +291,383 @@ class TableManager {
 }
 const tableUser = new TableManager(3, container4);
 tableUser.render('my-custom-table', 3, 3);
+// =========================================================================
+// Задача 5. Відображаємо картки товарів, які користувач може вибирати.
+//  Вибраний товар має зелену рамку (при кліку робити toogle з класом вибраного елемента)
+// =========================================================================
+const title5 = createTitle('Задача 5', 'title-5');
+title5.style.textAlign = 'center';
+title5.style.fontSize = '40px';
+const container5 = document.querySelector(`.task-5`);
+if (container5) {
+    container5?.before(title5);
+    container5.style.display = 'flex';
+    container5.style.alignItems = 'center';
+    container5.style.gap = '20px';
+    container5.style.justifyContent = 'center';
+    container5.style.flexWrap = 'wrap';
+}
+const myProducts = [
+    {
+        id: 232323,
+        title: 'Apple',
+        price: 25,
+        image: `../lesson_19/img/product-img-apple.webp`
+    },
+    {
+        id: 54546,
+        title: 'Cabbage',
+        price: 30,
+        image: `../lesson_19/img/product-img-cabbage.webp`
+    },
+    {
+        id: 345424,
+        title: 'Capsicum',
+        price: 40,
+        image: `../lesson_19/img/product-img-capsicum.webp`,
+    },
+    {
+        id: 674523,
+        title: 'Cauliflower',
+        price: 35,
+        image: `../lesson_19/img/product-img-cauliflower.webp`,
+    }
+];
+class ProductList {
+    title = '';
+    productList;
+    wrappers = [];
+    container;
+    constructor(productList, container) {
+        this.productList = productList;
+        this.container = container;
+    }
+    createProductCard(product, className) {
+        const wrapCard = document.createElement('article');
+        wrapCard.className = className;
+        wrapCard.style.cursor = 'pointer';
+        wrapCard.style.borderRadius = '4px';
+        wrapCard.style.padding = '20px';
+        wrapCard.style.maxWidth = '300px';
+        wrapCard.style.maxHeight = '300px';
+        const image = document.createElement('img');
+        image.className = `${className}__img`;
+        // image.style.aspectRatio = '1'
+        image.style.objectFit = 'cover';
+        image.style.width = '100%';
+        image.style.height = '100%';
+        image.src = product.image;
+        const contentWrap = document.createElement('div');
+        contentWrap.className = `${className}__content`;
+        contentWrap.style.display = 'flex';
+        contentWrap.style.alignItems = 'center';
+        contentWrap.style.justifyContent = 'space-between';
+        contentWrap.style.gap = '10px';
+        contentWrap.style.flexWrap = 'wrap';
+        const title = document.createElement('h3');
+        title.className = `${className}__title`;
+        title.style.margin = '0';
+        title.innerText = product.title;
+        const price = document.createElement('span');
+        price.className = `${className}__price`;
+        price.innerText = `${product.price}$`;
+        contentWrap.append(title);
+        contentWrap.append(price);
+        wrapCard.append(image);
+        wrapCard.append(contentWrap);
+        return wrapCard;
+    }
+    handleClickCard(card) {
+        if (card) {
+            card.classList.toggle('active');
+        }
+    }
+    addEvents() {
+        this.wrappers.forEach(card => {
+            card.addEventListener('click', () => {
+                this.handleClickCard(card);
+            });
+        });
+    }
+    render() {
+        this.productList.forEach(item => {
+            const card = this.createProductCard(item, 'product-card');
+            this.container.append(card);
+            this.wrappers.push(card);
+        });
+        this.addEvents();
+    }
+}
+const productCard1 = new ProductList(myProducts, container5);
+productCard1.render();
+// ======================================================================================================
+// Задача 6. Дано список спортсменів. Потрібно сформувати список тих, які будуть брати участь у змаганні. 
+// При цьому є два стовпці. В одному відображені всі спортсмени, в іншому – список тих, хто був вибраний. 
+// При натисканні на зелену стрілку спортсмен переміщається у список для змагань. 
+// При натисканні на червону стрілку спортсмен переміщається у загальний список.
+// ======================================================================================================
+const title6 = createTitle('Задача 6', 'title-6');
+title6.style.textAlign = 'center';
+title6.style.fontSize = '40px';
+const container6 = document.querySelector(`.task-6`);
+if (container6) {
+    container6?.before(title6);
+}
+const athletes = [
+    {
+        id: 1,
+        name: 'Michael Jordan',
+        kindOfSport: 'Basketball',
+        hasInjured: false,
+    },
+    {
+        id: 2,
+        name: 'Cristiano Ronaldo',
+        kindOfSport: 'Football',
+        hasInjured: true,
+    },
+    {
+        id: 3,
+        name: 'Usain Bolt',
+        kindOfSport: 'Sprint',
+        hasInjured: false,
+    },
+    {
+        id: 4,
+        name: 'Novak Djokovic',
+        kindOfSport: 'Tennis',
+        hasInjured: true,
+    },
+    {
+        id: 5,
+        name: 'Lionel Messi',
+        kindOfSport: 'Football',
+        hasInjured: false,
+    },
+    {
+        id: 6,
+        name: 'LeBron James',
+        kindOfSport: 'Basketball',
+        hasInjured: true,
+    },
+];
+class AthletesManager {
+    athletesList;
+    container;
+    generateContainerList;
+    competitionContainerList;
+    generateInnerBox;
+    competitionInnerBox;
+    constructor(athletesList, container) {
+        this.athletesList = athletesList;
+        this.container = container;
+    }
+    createLayouts(className = 'athletes') {
+        const mainContainer = document.createElement('article');
+        mainContainer.className = className;
+        mainContainer.style.display = 'flex';
+        mainContainer.style.alignItems = 'flex-start';
+        mainContainer.style.justifyContent = 'center';
+        mainContainer.style.gap = '30px';
+        this.generateContainerList = document.createElement('div');
+        this.generateContainerList.className = `${className}__all`;
+        this.generateInnerBox = document.createElement('div');
+        this.generateInnerBox.className = `${className}__wrap`;
+        this.generateInnerBox.style.width = '300px';
+        this.generateInnerBox.style.height = '280px';
+        this.generateInnerBox.style.border = '1px solid #000';
+        this.generateInnerBox.style.padding = '20px';
+        this.generateInnerBox.style.backgroundColor = 'coral';
+        this.generateInnerBox.style.display = 'flex';
+        this.generateInnerBox.style.flexDirection = 'column';
+        this.generateInnerBox.style.gap = '5px';
+        this.competitionContainerList = document.createElement('div');
+        this.competitionContainerList.className = `${className}__selected`;
+        this.competitionInnerBox = document.createElement('div');
+        this.competitionInnerBox.className = `${className}__wrap`;
+        this.competitionInnerBox.style.width = '300px';
+        this.competitionInnerBox.style.height = '280px';
+        this.competitionInnerBox.style.border = '1px solid #000';
+        this.competitionInnerBox.style.padding = '20px';
+        this.competitionInnerBox.style.backgroundColor = 'lightgreen';
+        this.competitionInnerBox.style.display = 'flex';
+        this.competitionInnerBox.style.flexDirection = 'column';
+        this.competitionInnerBox.style.gap = '5px';
+        const titleLeft = document.createElement('h3');
+        titleLeft.innerText = 'Усі спортсмени';
+        titleLeft.style.textAlign = 'center';
+        titleLeft.style.fontSize = '22px';
+        this.generateContainerList.append(titleLeft);
+        const titleRight = document.createElement('h3');
+        titleRight.innerText = 'Обрані для змагань';
+        titleRight.style.textAlign = 'center';
+        titleRight.style.fontSize = '22px';
+        this.competitionContainerList.append(titleRight);
+        this.generateContainerList.append(this.generateInnerBox);
+        this.competitionContainerList.append(this.competitionInnerBox);
+        mainContainer.append(this.generateContainerList);
+        mainContainer.append(this.competitionContainerList);
+        this.container.append(mainContainer);
+        return mainContainer;
+    }
+    createAthleteCard(athlete, isSelected) {
+        const card = document.createElement('div');
+        card.innerText = `${athlete.name} - ${athlete.kindOfSport}`;
+        card.dataset.id = String(athlete.id);
+        card.style.display = 'flex';
+        card.style.justifyContent = 'space-between';
+        card.style.alignItems = 'center';
+        card.style.gap = '20px';
+        card.style.border = '1px solid #000';
+        card.style.padding = '10px';
+        // card.style.marginTop = '-1px'
+        card.style.backgroundColor = 'lightgrey';
+        const btn = document.createElement('button');
+        btn.style.borderColor = 'brown';
+        btn.style.borderRadius = '6px';
+        if (isSelected) {
+            btn.innerText = '←';
+            btn.style.color = 'red';
+        }
+        else {
+            btn.innerText = '→';
+            btn.style.color = 'green';
+        }
+        card.append(btn);
+        return card;
+    }
+    moveAthlete(card, toCompetition) {
+        const btn = card.querySelector(`button`);
+        if (!btn)
+            return;
+        if (toCompetition) {
+            this.competitionInnerBox.append(card);
+            btn.innerText = '←';
+            btn.style.color = 'red';
+        }
+        else {
+            this.generateInnerBox.append(card);
+            btn.innerText = '→';
+            btn.style.color = 'green';
+        }
+    }
+    addEvents(mainContainer) {
+        mainContainer.addEventListener('click', (e) => {
+            const btn = e.target;
+            if (btn.tagName !== 'BUTTON')
+                return;
+            const card = btn.closest('div');
+            if (!card)
+                return;
+            if (btn.innerText === '→') {
+                this.moveAthlete(card, true);
+            }
+            else if (btn.innerText === '←') {
+                this.moveAthlete(card, false);
+            }
+        });
+    }
+    render() {
+        const layout = this.createLayouts();
+        this.athletesList.forEach(athlete => {
+            const card = this.createAthleteCard(athlete, false);
+            this.generateInnerBox.append(card);
+        });
+        this.addEvents(layout);
+    }
+}
+const manager = new AthletesManager(athletes, container6);
+manager.render();
+// =====================================================================================================
+// Задача 7. Відобразити падаючий сніг. Сніжинка з’являється у верхній частині екрану (top =0)
+// і з випадковою швидкістю рухається вниз (у setInterval викликати метод, у якому додавати крок до top).
+// Як тільки сніжинка досягає нижньої частини екрану (top>maxTop) вона знову повинна з’явитись у
+// верхній частині екрану (top=0).
+// =====================================================================================================
+// const title7 = createTitle('Задача 7', 'title-7')
+// title7.style.textAlign = 'center'
+// title7.style.fontSize = '40px'
+// const container7 = document.querySelector(`.task-7`)
+// if (container7) {
+//   container7?.before(title7)
+// }
+// type TypeSnowflakeState = {
+//   element: HTMLElement,
+//   x: number,
+//   y: number,
+//   step: number,
+// }
+// function createSnowfallContainer(className: string) {
+//   const snowfallContainer = document.createElement('article')
+//   snowfallContainer.className = className
+//   snowfallContainer.style.position = 'relative'
+//   snowfallContainer.style.overflow = 'hidden'
+//   snowfallContainer.style.background = '#121212'
+//   snowfallContainer.style.width = '100%'
+//   snowfallContainer.style.height = '500px'
+//   const maxWidth = snowfallContainer.clientWidth
+//   const maxHeight = snowfallContainer.clientHeight
+//   return { snowfallContainer, maxWidth, maxHeight }
+// }
+// function getRandomNumber(min: number, max: number) {
+//   const randNum = min + Math.random() * (max - min)
+//   return randNum
+// }
+// function initSnowflakes(count: number, maxWidth: number, maxHeight: number, container: HTMLElement) {
+//   const snowFlakes = []
+//   for (let i = 0; i < count; i++) {
+//     const randomX = Math.floor(Math.random() * maxWidth)
+//     const randomY = Math.floor(Math.random() * maxHeight)
+//     const randomStep = 1 + Math.floor(Math.random() * 4)
+//     const snowflake = document.createElement('div')
+//     snowflake.className = 'snowflake'
+//     snowflake.style.backgroundColor = 'white'
+//     snowflake.style.width = '20px'
+//     snowflake.style.height = '20px'
+//     snowflake.style.position = 'absolute'
+//     snowflake.style.left = `${randomX}px`
+//     snowflake.style.top = `${randomY}px`
+//     container.append(snowflake)
+//     const snowflakeState: TypeSnowflakeState = {
+//       element: snowflake,
+//       x: randomX,
+//       y: randomY,
+//       step: randomStep,
+//     }
+//     snowFlakes.push(snowflakeState)
+//   }
+//   return snowFlakes
+// }
+// function updateSnowflakes(snowFlakes: TypeSnowflakeState[], maxHeight: number, maxWidth: number) {
+//   snowFlakes.forEach((snowflake) => {
+//     snowflake.y += snowflake.step
+//     if (snowflake.y > maxHeight) {
+//       snowflake.y = 0
+//       snowflake.x = Math.floor(Math.random() * maxWidth)
+//     }
+//   });
+// }
+// function renderSnowflakes(snowFlakes: TypeSnowflakeState[]) {
+//   snowFlakes.forEach(snowflake => {
+//     snowflake.element.style.left = `${snowflake.x}px`
+//     snowflake.element.style.top = `${snowflake.y}px`
+//   });
+// }
+// function startSnowFall(count: number) {
+//   const snowfallEl = createSnowfallContainer('snowfall-container')
+//   container7?.append(snowfallEl.snowfallContainer)
+//   const snowflakesArray = initSnowflakes(
+//     count,
+//     snowfallEl.maxWidth,
+//     snowfallEl.maxHeight,
+//     snowfallEl.snowfallContainer
+//   )
+//   setInterval(() => {
+//     updateSnowflakes(snowflakesArray, snowfallEl.maxHeight, snowfallEl.maxWidth)
+//     renderSnowflakes(snowflakesArray)
+//   }, 3000);
+// }
+// startSnowFall(10)
 // =======================================================================================
 // class Roulette {
 //   fieldsNumber: number
@@ -351,31 +732,71 @@ tableUser.render('my-custom-table', 3, 3);
 // }
 // const card = generateElement('card')
 // container?.append(card)
+//===========
 // task 1
+//===========
 // card.addEventListener('mouseenter', () => {
 //   card.classList.add('active')
 // });
 // card.addEventListener('mouseleave', () => {
 //   card.classList.remove('active')
 // });
+//===========
 // task 2
+//===========
 // card.addEventListener('mousemove', (e) => {
 //   console.log(e.clientX);
 //   console.log(e.clientY);
 // });
+//===========
 // task 3
+//===========
 // const circle = generateElement('circle')
 // container?.append(circle)
 // circle.addEventListener('mousemove', (e) => {
 //   circle.style.left = `${e.clientX - 15}px`
 //   circle.style.top = `${e.clientY - 15}px`
 // });
+//===========
+// task 4
+//===========
 // const btn = document.querySelectorAll(`.delete-btn`)
 // btn.forEach(item => {
-//   item.addEventListener('click', () => {
-//     const card = document.querySelectorAll(`.card`)
-//     card.forEach(i => {
-//       i.remove()
-//     });
+//   item.addEventListener('click', (e) => {
+//     const card = (e.target as HTMLElement).closest('.card')
+//     if (!card) return
+//     card.remove()
+//     console.log('Card deleted');
 //   });
+// });
+//===========
+// task 5
+//===========
+// const cardsBox = document.querySelector(`.cards`)
+// cardsBox?.addEventListener('click', (e) => {
+//   const btn = (e.target as HTMLElement).closest('.delete-btn')
+//   if (!btn) return
+//   const card = btn.closest(`.card`)
+//   if (card) {
+//     card.remove()
+//   }
+// });
+//===========
+// task 6
+//===========
+// const wrapCards = document.querySelector(`.cards`) as HTMLElement
+// if (wrapCards) {
+//   wrapCards.style.display = 'flex'
+//   wrapCards.style.gap = '20px'
+//   wrapCards.style.marginTop = '20px'
+//   wrapCards.style.textAlign = 'center'
+// }
+// wrapCards?.addEventListener('click', (e) => {
+//   const card = (e.target as HTMLElement).closest('.card')
+//   if (!card) return
+//   const cards = document.querySelectorAll(`.card`)
+//   cards.forEach(item => {
+//     item.classList.remove('active')
+//   });
+//   card.classList.add('active')
 // });
