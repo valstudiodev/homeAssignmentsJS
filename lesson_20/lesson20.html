@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 20</title>
+    <link rel="stylesheet" href="../style.scss">
+    <style>
+      .div-box {}
+
+      /* [data-active] {
+        background-color: red;
+        width: 300px;
+        height: 200px;
+      } */
+
+      body.active {
+        background-color: blue;
+      }
+
+      .obj {
+        width: 200px;
+        height: 100px;
+        background-color: grey;
+        text-align: center;
+        align-content: center;
+        font-size: 30px;
+        color: white;
+        margin-bottom: 20px;
+        border-radius: 10px;
+      }
+
+      .btn-save {
+        background-color: green;
+        color: white;
+        border-radius: 6px;
+        padding-inline: 30px;
+        padding-block: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-save:hover {
+        background-color: lightgreen;
+        color: #000;
+      }
+
+      .btn-delete {
+        background-color: red;
+        color: #000;
+        border-radius: 6px;
+        padding-inline: 30px;
+        padding-block: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-delete:hover {
+        background-color: coral;
+      }
+
+      .container-box {
+        background-color: lightblue;
+        width: 100%;
+        height: 100px;
+        margin-bottom: 50px;
+      }
+
+      .container-parent {
+        background-color: lightgrey;
+        width: 100%;
+        height: 100px;
+        margin-bottom: 50px;
+      }
+
+      /* ================== */
+      .filter__buttons {
+        margin-bottom: 30px;
+      }
+
+      .filter__content {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .filter__btn {
+        background-color: coral;
+        color: #fff;
+        padding-inline: 20px;
+        padding-block: 10px;
+        font-weight: 600;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .filter__btn.active {
+        background-color: pink;
+      }
+
+      .filter__btn:hover {
+        background-color: orange;
+      }
+
+      .filter__window {
+        /* position: absolute;
+        top: 0;
+        left: 0; */
+
+        padding: 20px;
+        border: 1px solid #000;
+        font-size: 22px;
+        max-width: 500px;
+        /* height: 100%; */
+        line-height: 1.5;
+        /* opacity: 0; */
+        /* transform: translateY(10px); */
+        pointer-events: none;
+        /* height: 0; */
+        /* overflow: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease; */
+        display: none;
+      }
+
+      .filter__window.active {
+        /* opacity: 1; */
+        /* transform: translateY(0);
+        pointer-events: auto; */
+        /* height: auto; */
+        display: block;
+      }
+
+      .filter__window.music {
+        background-color: lightgreen;
+      }
+
+      .filter__window.movies {
+        background-color: lightblue;
+      }
+
+      .filter__window.books {
+        background-color: lightcoral;
+      }
+
+      .filter__window.games {
+        background-color: lightpink;
+      }
+
+      .filter__window.food {
+        background-color: lightseagreen;
+      }
+
+      .filter__window.active {
+        display: block;
+      }
+
+      /* ============================================= */
+      * {
+        box-sizing: border-box;
+      }
+
+      /* body {
+        margin: 0;
+        padding: 40px;
+        background: #111;
+        font-family: sans-serif;
+      } */
+
+      .app {
+        display: flex;
+        gap: 20px;
+      }
+
+      .button {
+        border: none;
+        padding: 14px 24px;
+        font-size: 16px;
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      .button:hover {
+        opacity: 0.8;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Ховаємо стрілочки для Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+
+      .my-btn {
+        background-color: coral;
+        color: #fff;
+        border: 1px solid #000;
+        border-radius: 40px;
+        padding-block: 10px;
+        padding-inline: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 600;
+      }
+
+      .my-btn:hover {
+        background-color: blue;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+
+    <div class="wrapper">
+
+      <main class="page" style="padding: 50px;">
+
+        <!-- <div class="page__container">
+
+          <div class="container-parent"></div>
+
+          <div class="container-box"></div>
+
+          <div class="obj">Object</div>
+
+          <button class="btn-save">Save</button>
+          <button class="btn-delete">Delete</button>
+
+        </div> -->
+
+        <!-- 
+        <div class="filter">
+          <div class="filter__buttons">
+            <button class="filter__btn active" data-filter="music">Music</button>
+            <button class="filter__btn" data-filter="movies">Movies</button>
+            <button class="filter__btn" data-filter="books">Books</button>
+            <button class="filter__btn" data-filter="games">Games</button>
+            <button class="filter__btn" data-filter="food">Food</button>
+          </div>
+          <div class="filter__content">
+            <div class="filter__window music active" data-category="music">
+              <p>Music : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window music active" data-category="music">
+              <p>Music : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window music active" data-category="music">
+              <p>Music : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window music active" data-category="music">
+              <p>Music : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window music active" data-category="music">
+              <p>Music : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window music active" data-category="music">
+              <p>Music : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+
+            <div class="filter__window movies" data-category="movies">
+              <p>Movies : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window movies" data-category="movies">
+              <p>Movies : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window movies" data-category="movies">
+              <p>Movies : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window movies" data-category="movies">
+              <p>Movies : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window movies" data-category="movies">
+              <p>Movies : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window movies" data-category="movies">
+              <p>Movies : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+
+            <div class="filter__window books" data-category="books">
+              <p>Books : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window books" data-category="books">
+              <p>Books : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window books" data-category="books">
+              <p>Books : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window books" data-category="books">
+              <p>Books : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window books" data-category="books">
+              <p>Books : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window books" data-category="books">
+              <p>Books : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+
+            <div class="filter__window  games" data-category="games">
+              <p>Games : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window  games" data-category="games">
+              <p>Games : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window  games" data-category="games">
+              <p>Games : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+
+            <div class="filter__window  food" data-category="food">
+              <p>Food : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window  food" data-category="food">
+              <p>Food : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window  food" data-category="food">
+              <p>Food : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+            <div class="filter__window  food" data-category="food">
+              <p>Food : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur nemo esse delectus
+                repellendus
+                unde dolorum hic fuga voluptatibus obcaecati ea?
+              </p>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <div class="task-1"></div>
+        <div class="task-2"></div>
+        <div class="task-3"></div>
+        <div class="task-4"></div>
+        <div class="task-5"></div>
+        <div class="task-6"></div>
+
+
+        <div class="custom-container"></div>
+
+        <!-- <button class="my-btn" id="prod_99" data-title="Кросівки" data-price="1800" type="button">Add Product</button> -->
+
+
+        <script>
+
+        </script>
+
+      </main>
+
+      <div class="app"></div>
+
+      <div id="root"></div>
+
+      <footer></footer>
+    </div>
+
+
+    <script src="../javascript/lesson20.js"></script>
+  </body>
+</html>

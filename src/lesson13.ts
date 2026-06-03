@@ -12,6 +12,7 @@
 
 
 
+// ================================
 // const company = [
 //   {
 //     name: "Олександр (CEO)",
@@ -48,8 +49,6 @@
 //     ]
 //   },
 // ];
-
-
 // function getAllNames(employees): void {
 //   for (const worker of employees) {
 //     console.log(worker.name);
@@ -61,8 +60,7 @@
 // const mainResult = getAllNames(company);
 
 
-
-
+// ================================
 // const box = {
 //   content: {
 //     content: {
@@ -70,18 +68,14 @@
 //     }
 //   }
 // };
-
-// function findTreasure(obj: any): number {
+// function findTreasure(obj: any) {
 //   // 1. Якщо всередині число — поверни його (Базовий випадок)
 //   if (typeof obj === 'number') return obj
-
 
 //   // 2. Інакше — викликай findTreasure для того, що всередині (Рекурсія)
 //   return findTreasure(obj)
 // }
-
 // const treasure = findTreasure(box)
-
 // console.log(treasure);
 
 

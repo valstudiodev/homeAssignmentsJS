@@ -1,4 +1,5 @@
 "use strict";
+// ================================
 // const company = [
 //   {
 //     name: "Олександр (CEO)",
@@ -44,6 +45,7 @@
 //   }
 // }
 // const mainResult = getAllNames(company);
+// ================================
 // const box = {
 //   content: {
 //     content: {
@@ -51,7 +53,7 @@
 //     }
 //   }
 // };
-// function findTreasure(obj: any): number {
+// function findTreasure(obj: any) {
 //   // 1. Якщо всередині число — поверни його (Базовий випадок)
 //   if (typeof obj === 'number') return obj
 //   // 2. Інакше — викликай findTreasure для того, що всередині (Рекурсія)

@@ -295,111 +295,117 @@ tableUser.render('my-custom-table', 3, 3);
 // Задача 5. Відображаємо картки товарів, які користувач може вибирати.
 //  Вибраний товар має зелену рамку (при кліку робити toogle з класом вибраного елемента)
 // =========================================================================
-const title5 = createTitle('Задача 5', 'title-5');
-title5.style.textAlign = 'center';
-title5.style.fontSize = '40px';
-const container5 = document.querySelector(`.task-5`);
-if (container5) {
-    container5?.before(title5);
-    container5.style.display = 'flex';
-    container5.style.alignItems = 'center';
-    container5.style.gap = '20px';
-    container5.style.justifyContent = 'center';
-    container5.style.flexWrap = 'wrap';
-}
-const myProducts = [
-    {
-        id: 232323,
-        title: 'Apple',
-        price: 25,
-        image: `../lesson_19/img/product-img-apple.webp`
-    },
-    {
-        id: 54546,
-        title: 'Cabbage',
-        price: 30,
-        image: `../lesson_19/img/product-img-cabbage.webp`
-    },
-    {
-        id: 345424,
-        title: 'Capsicum',
-        price: 40,
-        image: `../lesson_19/img/product-img-capsicum.webp`,
-    },
-    {
-        id: 674523,
-        title: 'Cauliflower',
-        price: 35,
-        image: `../lesson_19/img/product-img-cauliflower.webp`,
-    }
-];
-class ProductList {
-    title = '';
-    productList;
-    wrappers = [];
-    container;
-    constructor(productList, container) {
-        this.productList = productList;
-        this.container = container;
-    }
-    createProductCard(product, className) {
-        const wrapCard = document.createElement('article');
-        wrapCard.className = className;
-        wrapCard.style.cursor = 'pointer';
-        wrapCard.style.borderRadius = '4px';
-        wrapCard.style.padding = '20px';
-        wrapCard.style.maxWidth = '300px';
-        wrapCard.style.maxHeight = '300px';
-        const image = document.createElement('img');
-        image.className = `${className}__img`;
-        // image.style.aspectRatio = '1'
-        image.style.objectFit = 'cover';
-        image.style.width = '100%';
-        image.style.height = '100%';
-        image.src = product.image;
-        const contentWrap = document.createElement('div');
-        contentWrap.className = `${className}__content`;
-        contentWrap.style.display = 'flex';
-        contentWrap.style.alignItems = 'center';
-        contentWrap.style.justifyContent = 'space-between';
-        contentWrap.style.gap = '10px';
-        contentWrap.style.flexWrap = 'wrap';
-        const title = document.createElement('h3');
-        title.className = `${className}__title`;
-        title.style.margin = '0';
-        title.innerText = product.title;
-        const price = document.createElement('span');
-        price.className = `${className}__price`;
-        price.innerText = `${product.price}$`;
-        contentWrap.append(title);
-        contentWrap.append(price);
-        wrapCard.append(image);
-        wrapCard.append(contentWrap);
-        return wrapCard;
-    }
-    handleClickCard(card) {
-        if (card) {
-            card.classList.toggle('active');
-        }
-    }
-    addEvents() {
-        this.wrappers.forEach(card => {
-            card.addEventListener('click', () => {
-                this.handleClickCard(card);
-            });
-        });
-    }
-    render() {
-        this.productList.forEach(item => {
-            const card = this.createProductCard(item, 'product-card');
-            this.container.append(card);
-            this.wrappers.push(card);
-        });
-        this.addEvents();
-    }
-}
-const productCard1 = new ProductList(myProducts, container5);
-productCard1.render();
+// const title5 = createTitle('Задача 5', 'title-5')
+// title5.style.textAlign = 'center'
+// title5.style.fontSize = '40px'
+// const container5 = document.querySelector(`.task-5`) as HTMLElement
+// if (container5) {
+//   container5?.before(title5)
+//   container5.style.display = 'flex'
+//   container5.style.alignItems = 'center'
+//   container5.style.gap = '20px'
+//   container5.style.justifyContent = 'center'
+//   container5.style.flexWrap = 'wrap'
+// }
+// type Product = {
+//   id: number,
+//   title: string,
+//   price: number,
+//   image: string,
+// }
+// const myProducts: Product[] = [
+//   {
+//     id: 232323,
+//     title: 'Apple',
+//     price: 25,
+//     image: `../lesson_19/img/product-img-apple.webp`
+//   },
+//   {
+//     id: 54546,
+//     title: 'Cabbage',
+//     price: 30,
+//     image: `../lesson_19/img/product-img-cabbage.webp`
+//   },
+//   {
+//     id: 345424,
+//     title: 'Capsicum',
+//     price: 40,
+//     image: `../lesson_19/img/product-img-capsicum.webp`,
+//   },
+//   {
+//     id: 674523,
+//     title: 'Cauliflower',
+//     price: 35,
+//     image: `../lesson_19/img/product-img-cauliflower.webp`,
+//   }
+// ]
+// class ProductList {
+//   title: string = ''
+//   productList: Product[]
+//   wrappers: HTMLElement[] = []
+//   container: HTMLElement
+//   constructor(productList: Product[], container: HTMLElement) {
+//     this.productList = productList
+//     this.container = container
+//   }
+//   createProductCard(product: Product, className: string) {
+//     const wrapCard = document.createElement('article')
+//     wrapCard.className = className
+//     wrapCard.style.cursor = 'pointer'
+//     wrapCard.style.borderRadius = '4px'
+//     wrapCard.style.padding = '20px'
+//     wrapCard.style.maxWidth = '300px'
+//     wrapCard.style.maxHeight = '300px'
+//     const image = document.createElement('img')
+//     image.className = `${className}__img`
+//     // image.style.aspectRatio = '1'
+//     image.style.objectFit = 'cover'
+//     image.style.width = '100%'
+//     image.style.height = '100%'
+//     image.src = product.image
+//     const contentWrap = document.createElement('div')
+//     contentWrap.className = `${className}__content`
+//     contentWrap.style.display = 'flex'
+//     contentWrap.style.alignItems = 'center'
+//     contentWrap.style.justifyContent = 'space-between'
+//     contentWrap.style.gap = '10px'
+//     contentWrap.style.flexWrap = 'wrap'
+//     const title = document.createElement('h3')
+//     title.className = `${className}__title`
+//     title.style.margin = '0'
+//     title.innerText = product.title
+//     const price = document.createElement('span')
+//     price.className = `${className}__price`
+//     price.innerText = `${product.price}$`
+//     contentWrap.append(title)
+//     contentWrap.append(price)
+//     wrapCard.append(image)
+//     wrapCard.append(contentWrap)
+//     return wrapCard
+//   }
+//   handleClickCard(card: HTMLElement) {
+//     if (card) {
+//       card.classList.toggle('active')
+//     }
+//   }
+//   addEvents() {
+//     this.wrappers.forEach(card => {
+//       card.addEventListener('click', () => {
+//         this.handleClickCard(card)
+//       });
+//     })
+//   }
+//   render() {
+//     this.productList.forEach(item => {
+//       const card = this.createProductCard(item, 'product-card')
+//       this.container.append(card)
+//       this.wrappers.push(card)
+//     })
+//     this.addEvents()
+//   }
+// }
+// const productCard1 = new ProductList(myProducts, container5)
+// productCard1.render()
 // ======================================================================================================
 // Задача 6. Дано список спортсменів. Потрібно сформувати список тих, які будуть брати участь у змаганні. 
 // При цьому є два стовпці. В одному відображені всі спортсмени, в іншому – список тих, хто був вибраний. 
@@ -584,90 +590,85 @@ manager.render();
 // Як тільки сніжинка досягає нижньої частини екрану (top>maxTop) вона знову повинна з’явитись у
 // верхній частині екрану (top=0).
 // =====================================================================================================
-// const title7 = createTitle('Задача 7', 'title-7')
-// title7.style.textAlign = 'center'
-// title7.style.fontSize = '40px'
-// const container7 = document.querySelector(`.task-7`)
-// if (container7) {
-//   container7?.before(title7)
-// }
-// type TypeSnowflakeState = {
-//   element: HTMLElement,
-//   x: number,
-//   y: number,
-//   step: number,
-// }
-// function createSnowfallContainer(className: string) {
-//   const snowfallContainer = document.createElement('article')
-//   snowfallContainer.className = className
-//   snowfallContainer.style.position = 'relative'
-//   snowfallContainer.style.overflow = 'hidden'
-//   snowfallContainer.style.background = '#121212'
-//   snowfallContainer.style.width = '100%'
-//   snowfallContainer.style.height = '500px'
-//   const maxWidth = snowfallContainer.clientWidth
-//   const maxHeight = snowfallContainer.clientHeight
-//   return { snowfallContainer, maxWidth, maxHeight }
-// }
-// function getRandomNumber(min: number, max: number) {
-//   const randNum = min + Math.random() * (max - min)
-//   return randNum
-// }
-// function initSnowflakes(count: number, maxWidth: number, maxHeight: number, container: HTMLElement) {
-//   const snowFlakes = []
-//   for (let i = 0; i < count; i++) {
-//     const randomX = Math.floor(Math.random() * maxWidth)
-//     const randomY = Math.floor(Math.random() * maxHeight)
-//     const randomStep = 1 + Math.floor(Math.random() * 4)
-//     const snowflake = document.createElement('div')
-//     snowflake.className = 'snowflake'
-//     snowflake.style.backgroundColor = 'white'
-//     snowflake.style.width = '20px'
-//     snowflake.style.height = '20px'
-//     snowflake.style.position = 'absolute'
-//     snowflake.style.left = `${randomX}px`
-//     snowflake.style.top = `${randomY}px`
-//     container.append(snowflake)
-//     const snowflakeState: TypeSnowflakeState = {
-//       element: snowflake,
-//       x: randomX,
-//       y: randomY,
-//       step: randomStep,
-//     }
-//     snowFlakes.push(snowflakeState)
-//   }
-//   return snowFlakes
-// }
-// function updateSnowflakes(snowFlakes: TypeSnowflakeState[], maxHeight: number, maxWidth: number) {
-//   snowFlakes.forEach((snowflake) => {
-//     snowflake.y += snowflake.step
-//     if (snowflake.y > maxHeight) {
-//       snowflake.y = 0
-//       snowflake.x = Math.floor(Math.random() * maxWidth)
-//     }
-//   });
-// }
-// function renderSnowflakes(snowFlakes: TypeSnowflakeState[]) {
-//   snowFlakes.forEach(snowflake => {
-//     snowflake.element.style.left = `${snowflake.x}px`
-//     snowflake.element.style.top = `${snowflake.y}px`
-//   });
-// }
-// function startSnowFall(count: number) {
-//   const snowfallEl = createSnowfallContainer('snowfall-container')
-//   container7?.append(snowfallEl.snowfallContainer)
-//   const snowflakesArray = initSnowflakes(
-//     count,
-//     snowfallEl.maxWidth,
-//     snowfallEl.maxHeight,
-//     snowfallEl.snowfallContainer
-//   )
-//   setInterval(() => {
-//     updateSnowflakes(snowflakesArray, snowfallEl.maxHeight, snowfallEl.maxWidth)
-//     renderSnowflakes(snowflakesArray)
-//   }, 3000);
-// }
-// startSnowFall(10)
+const container7 = document.querySelector('.task-7');
+if (!container7) {
+    throw new Error('Container .task-7 not found');
+}
+function createSnowfallContainer(className) {
+    const snowfallContainer = document.createElement('article');
+    snowfallContainer.className = className;
+    snowfallContainer.style.position = 'relative';
+    snowfallContainer.style.overflow = 'hidden';
+    snowfallContainer.style.background = '#121212';
+    snowfallContainer.style.width = '100%';
+    snowfallContainer.style.height = '500px';
+    return snowfallContainer;
+}
+function getRandomNumber(min, max) {
+    return min + Math.random() * (max - min);
+}
+function createSnowflake(maxWidth, maxHeight) {
+    const snowflake = document.createElement('div');
+    const x = getRandomNumber(0, maxWidth);
+    const y = getRandomNumber(0, maxHeight);
+    const step = getRandomNumber(1, 4);
+    snowflake.className = 'snowflake';
+    snowflake.style.position = 'absolute';
+    snowflake.style.width = '20px';
+    snowflake.style.height = '20px';
+    snowflake.style.willChange = 'translate';
+    snowflake.style.borderRadius = '50%';
+    snowflake.style.backgroundColor = '#fff';
+    snowflake.style.willChange = 'transform';
+    return {
+        element: snowflake,
+        x,
+        y,
+        step,
+    };
+}
+function initSnowflakes(count, maxWidth, maxHeight, container) {
+    const snowflakes = [];
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+        const snowflake = createSnowflake(maxWidth, maxHeight);
+        snowflakes.push(snowflake);
+        fragment.append(snowflake.element);
+    }
+    container.append(fragment);
+    return snowflakes;
+}
+function updateSnowflakes(snowflakes, maxWidth, maxHeight) {
+    snowflakes.forEach((snowflake) => {
+        snowflake.y += snowflake.step;
+        if (snowflake.y > maxHeight) {
+            snowflake.y = -20;
+            snowflake.x = getRandomNumber(0, maxWidth);
+        }
+    });
+}
+function renderSnowflakes(snowflakes) {
+    snowflakes.forEach((snowflake) => {
+        snowflake.element.style.transform =
+            `translate(${snowflake.x}px, ${snowflake.y}px)`;
+    });
+}
+function startSnowFall(count) {
+    const snowfallContainer = createSnowfallContainer('snowfall-container');
+    container7.append(snowfallContainer);
+    let maxWidth = snowfallContainer.clientWidth;
+    let maxHeight = snowfallContainer.clientHeight;
+    const snowflakes = initSnowflakes(count, maxWidth, maxHeight, snowfallContainer);
+    function animate() {
+        maxWidth = snowfallContainer.clientWidth;
+        maxHeight = snowfallContainer.clientHeight;
+        updateSnowflakes(snowflakes, maxWidth, maxHeight);
+        renderSnowflakes(snowflakes);
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+startSnowFall(50);
 // =======================================================================================
 // class Roulette {
 //   fieldsNumber: number

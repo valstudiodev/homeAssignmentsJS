@@ -93,7 +93,7 @@ function createField(label: string, idInput: string, container: HTMLElement) {
   wrapperBoxInput.append(labelInput);
   wrapperBoxInput.append(inputField);
 
-  wrapper.append(wrapperBoxInput)
+  container.append(wrapperBoxInput)
   return { wrapperBoxInput, inputField };
 }
 const firstField = createField('First number:', 'firstNumber', wrapper);
