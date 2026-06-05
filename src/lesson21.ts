@@ -13,6 +13,24 @@
 
 
 
+const startTime = new Date()
+
+function updateTimer() {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ==================================================
@@ -115,4 +133,4 @@ function draggableCard() {
   });
 }
 
-draggableCard()
+// draggableCard()

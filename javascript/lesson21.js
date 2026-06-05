@@ -7,6 +7,9 @@
 // console.log(stringDate);
 // const specificDate = new Date(1991, 4, 6, 30, 0)
 // console.log(specificDate);
+const startTime = new Date();
+function updateTimer() {
+}
 // ==================================================
 // ================= magnetic button ================
 // ==================================================
@@ -82,4 +85,4 @@ function draggableCard() {
         isDragging = false;
     });
 }
-draggableCard();
+// draggableCard()
