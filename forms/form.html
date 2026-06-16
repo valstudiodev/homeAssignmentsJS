@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <main class="page" style="padding: 50px;">
+
+        <form class="form">
+          <!-- input.value -->
+          <input type="text" class="username" />
+          <p class="output"></p>
+
+          <!-- textarea.value -->
+          <textarea class="message"></textarea>
+          <p class="counter"></p>
+
+          <!-- checkbox.checked -->
+          <input type="checkbox" class="toggle" />
+          <span class="state">OFF</span>
+
+          <!-- radio.value -->
+          <div class="wrap">
+            <label><input type="radio" name="theme" value="dark"> Dark</label>
+            <label><input type="radio" name="theme" value="light"> Light</label>
+          </div>
+          <p class="result"></p>
+
+          <!-- select.value -->
+          <div class="wrap">
+            <select class="country">
+              <option value="ua">Ukraine</option>
+              <option value="ca">Canada</option>
+            </select>
+          </div>
+
+          <p class="output-country"></p>
+
+
+          <!-- focus -->
+          <input class="search" />
+
+          <!-- submit + preventDefault -->
+          <div class="wrap">
+
+          </div>
+
+        </form>
+
+        <form class="form2">
+          <input name="email" />
+          <button>Send</button>
+        </form>
+      </main>
+
+      <footer></footer>
+    </div>
+
+
+    <script src="../javascript/form.js"></script>
+  </body>
+</html>

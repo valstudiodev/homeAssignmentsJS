@@ -158,6 +158,29 @@ const input = new GenerateInputs(5, container2)
 input.render()
 
 
+// ===========================
+// inputsEl.forEach((input) => {
+//   input.addEventListener('input', (e) => {
+//     const currentInput = (e.target as HTMLInputElement)
+//     const currentIndex = inputsArray.indexOf(currentInput)
+//     console.log(currentIndex);
+
+//     const value = Number(currentInput.value)
+//     console.log(value);
+
+//     if (isNaN(value)) return
+
+//     for (let i = 0; i < inputsArray.length; i++) {
+//       const difference = i - currentIndex
+//       const newValue = value + difference
+//       inputsArray[i].value = String(newValue)
+//     }
+//   });
+// });
+
+
+
+
 // =========================================================================
 // Задача 3. Дано 5 випадковим чином згенерованих нумерованих списків з рандомними
 // числами (кількість елементів у списку випадкова від 1 до 10, елементи випадкові – від 1 до 100).

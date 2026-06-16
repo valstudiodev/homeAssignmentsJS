@@ -837,3 +837,151 @@ const table1 = new TableGenerator(3, 4, tableContainer)
 //   });
 //   return btnScrollTop
 // }
+
+
+
+// =================================================
+// ====================== BOM ======================
+// =================================================
+
+// ================== window =======================
+// console.log(window.innerHeight);
+// console.log(window.outerHeight);
+
+// console.log(window.innerWidth);
+// console.log(window.outerWidth);
+
+// alert('Window')
+// window.alert('Gello')
+
+// console.log(window.screen.height);
+
+
+
+// ============ location ==============
+// console.log(location);
+// console.log(location.protocol);
+// console.log(location.hostname);
+// console.log(location.pathname);
+// console.log(location.search);
+// console.log(location.hash);
+
+// setTimeout(() => {
+//   location.href = 'https://google.com'
+// }, 3000);
+
+// console.log(location.reload);
+
+
+
+// ================== history ==================
+// console.log(history);
+// console.log(history.length);
+
+
+
+// ================= navigator =================
+// console.log(navigator.language);
+// console.log(navigator.onLine);
+// console.log(navigator.userAgent);
+// console.log(navigator.hardwareConcurrency);
+
+
+function showInfoUser() {
+  console.log(location.href);
+  console.log(location.host);
+  console.log(location.pathname);
+}
+// showInfoUser()
+
+function showBrowserInfo() {
+  console.log(`Language: ${navigator.language}`);
+  console.log(`Online: ${navigator.onLine}`);
+  console.log(`CPU Cores: ${navigator.hardwareConcurrency}`);
+}
+// showBrowserInfo()
+
+
+function goToGoogle(): void {
+  const btn = document.createElement('button')
+  if (btn) {
+    btn.textContent = 'Google'
+    btn.style.cursor = 'pointer'
+    document.body.append(btn)
+    btn.addEventListener('click', () => {
+      location.href = 'https://google.com'
+    });
+  }
+}
+// goToGoogle()
+
+
+function createButtons(): void {
+  const btn = document.createElement('button')
+  document.body.append(btn)
+  btn.textContent = 'Назад'
+  btn.style.cursor = 'pointer'
+
+  btn.addEventListener('click', () => {
+    history.back()
+  });
+}
+// createButtons()
+
+function createBtnForward(): void {
+  const btn = document.createElement('button')
+  document.body.append(btn)
+  btn.textContent = 'forward'
+  btn.style.cursor = 'pointer'
+
+  btn.addEventListener('click', () => {
+    history.forward()
+  });
+}
+// createBtnForward()
+
+function reloadPage(): void {
+  const btn = document.createElement('button')
+  document.body.append(btn)
+  btn.textContent = 'Reload'
+  btn.style.cursor = 'pointer'
+
+  btn.addEventListener('click', () => {
+    location.reload()
+  });
+}
+// reloadPage()
+
+
+function showCurrentPageInfo(): void {
+  const btn = document.createElement('button')
+  document.body.append(btn)
+  btn.textContent = 'Show info'
+  btn.style.cursor = 'pointer'
+
+  btn.addEventListener('click', () => {
+    console.log(`Current URL: ${location.href}`);
+    console.log(`Path: ${location.pathname}`);
+    console.log(`Query: ${location.search}`);
+    console.log(`Hash: ${location.hash}`);
+  });
+}
+// showCurrentPageInfo()
+
+
+function browserReport(): void {
+  const btn = document.createElement('button')
+  document.body.append(btn)
+  btn.textContent = 'Browser Report'
+  btn.style.cursor = 'pointer'
+
+  btn.addEventListener('click', () => {
+    console.log(`URL: ${location.href}`);
+    console.log(`Language: ${navigator.language}`);
+    console.log(`Online:  ${navigator.onLine}`);
+    console.log(`Width: ${window.innerWidth}`);
+    console.log(`Height: ${window.innerHeight}`);
+    console.log(`History Length ${history.length}`);
+  });
+}
+// browserReport()

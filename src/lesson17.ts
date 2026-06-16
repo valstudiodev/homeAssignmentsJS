@@ -78,16 +78,6 @@ class CompanyCar {
 const car1 = CompanyCar.getInstance('Jonh', 'Kis', 'AA-1111-AA')
 console.log(car1);
 
-const car2 = CompanyCar.getInstance(
-  'Mike',
-  'BMW',
-  'BB-2222-BB'
-);
-
-console.log(car1 === car2); // true
-console.log(car2);
-
-
 // Tas 3.Створити клас Нагадувач. Кожні вказані кількості секунд (використати setInterval) 
 // програма нагадує про якусь подію (це просто текст) і також виводиться порядковий 
 // номер скільки раз вже нагадування було. Зробити так, щоб неможна було зробити 

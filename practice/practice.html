@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+      body.active {
+        background-color: #000;
+      }
+
+      .page {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+      }
+
+      .box {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .el1 {
+        width: 100%;
+        height: 100px;
+        background-color: grey;
+        text-align: center;
+        align-content: center;
+      }
+
+      .el1.active {
+        background-color: green;
+      }
+
+      .el2 {
+        width: 100%;
+        height: 100px;
+        background-color: lightgreen;
+        text-align: center;
+        align-content: center;
+      }
+
+      .btn {
+        background-color: blue;
+        padding-block: 10px;
+        padding-inline: 24px;
+        border-radius: 10px;
+        color: white;
+        border: none;
+      }
+
+      .btn span {
+        font-size: 20px;
+      }
+
+      .move {
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+      }
+
+      /* ================= */
+      .cards {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        color: white;
+      }
+
+      .card {
+        background-color: coral;
+        padding: 20px;
+      }
+
+      /* ================= */
+      .todo-list {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .todo-item {
+        background-color: aqua;
+        padding: 20px;
+        color: grey;
+        list-style: none;
+      }
+
+      /* ================= */
+      .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .menu__item {
+        background-color: lightpink;
+        padding: 20px;
+        list-style: none;
+      }
+
+      /* ================= */
+
+      .some-box {
+        background-color: lightcoral;
+        padding: 20px;
+        font-size: 24px;
+      }
+
+      .wrap-filter {
+        background-color: lightblue;
+        color: #000;
+        padding: 20px;
+      }
+
+      /* dropdown */
+      .dropdown {}
+
+      .dropdown__trigger {
+        background-color: lightgray;
+        border: none;
+        padding-inline: 20px;
+        padding-block: 10px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .dropdown__content {
+        background-color: lightblue;
+        padding: 30px;
+        opacity: 0;
+        translate: 0 -100%;
+        visibility: hidden;
+        transition: translate 0.4s, opacity 0.4s;
+      }
+
+      .dropdown__content.active {
+        translate: 0 0;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .wrap-dropdown {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <!-- 1  -->
+      <div class="box">
+        <div class="el1">Element-1</div>
+        <div class="el2">Element-2</div>
+        <button class="btn" data-move-target>
+          <span>Click</span>
+        </button>
+      </div>
+
+      <div class="move" data-mobile-destination></div>
+
+      <main class="page" style="padding: 50px;">
+
+
+        <!-- 2 -->
+        <div class="box2">
+          <button class="button">Button</button>
+          <button class="button">Button</button>
+          <button class="button">Button</button>
+          <button class="button">Button</button>
+          <button class="button">Button</button>
+        </div>
+
+
+        <!-- =============== -->
+        <div class="cards">
+          <div class="card">Card 1
+            <button class="delete-btn">Delete</button>
+          </div>
+          <div class="card">Card 2
+            <button class="delete-btn">Delete</button>
+          </div>
+          <div class="card">Card 3
+            <button class="delete-btn">Delete</button>
+          </div>
+        </div>
+
+        <!-- ================== -->
+        <ul class="todo-list">
+          <li class="todo-item">HTML</li>
+          <li class="todo-item">CSS</li>
+          <li class="todo-item">JS</li>
+        </ul>
+
+        <!-- =================== -->
+        <ul class="menu">
+          <li class="menu__item">
+            <span>Home</span>
+          </li>
+          <li class="menu__item">About</li>
+          <li class="menu__item">Contacts</li>
+        </ul>
+
+        <!-- ===================== -->
+        <div class="products">
+          <div class="product" data-id="1">
+            <button class="add-btn">Add</button>
+          </div>
+
+          <div class="product" data-id="2">
+            <button class="add-btn">Add</button>
+          </div>
+
+          <div class="product" data-id="3">
+            <button class="add-btn">Add</button>
+          </div>
+        </div>
+
+
+        <!-- ================= Data-attributes ================== -->
+        <div class="some-box" data-id="101" data-category="sport" data-active="true" data-user-name="Val">Div</div>
+        <button class="some-btn" data-action="click">Click</button>
+
+        <div class="wrap-buttons">
+          <button data-color="red">Red</button>
+          <button data-color="green">Green</button>
+          <button data-color="blue">Blue</button>
+        </div>
+
+
+        <div class="wrap-filter">
+          <div class="filters">
+            <button data-category="all">All</button>
+            <button data-category="sport">Sport</button>
+            <button data-category="music">Music</button>
+            <button data-category="games">Games</button>
+          </div>
+
+          <div class="cards">
+            <div class="card-f" data-category="sport">Football</div>
+            <div class="card-f" data-category="music">Rock</div>
+            <div class="card-f" data-category="games">Chess</div>
+            <div class="card-f" data-category="sport">Basketball</div>
+          </div>
+        </div>
+
+
+        <!-- dropdown -->
+        <div class="wrap-dropdown">
+          <div class="dropdown" data-dropdown>
+            <button class="dropdown__trigger" data-dropdown-trigger>
+              Menu 1
+            </button>
+
+            <div class="dropdown__content" data-dropdown-content>
+              Content 1
+            </div>
+          </div>
+          <div class="dropdown" data-dropdown>
+            <button class="dropdown__trigger" data-dropdown-trigger>
+              Menu 2
+            </button>
+
+            <div class="dropdown__content" data-dropdown-content>
+              Content 2
+            </div>
+          </div>
+        </div>
+
+
+      </main>
+
+      <footer></footer>
+    </div>
+
+
+    <script src="../javascript/practice.js"></script>
+  </body>
+</html>
