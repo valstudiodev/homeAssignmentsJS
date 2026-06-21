@@ -1,23 +1,23 @@
 // ========================= 1 =======================
-// const btn = document.querySelector(`.btn`) as HTMLButtonElement
-// const originalParent = btn.parentElement
-// console.log(originalParent);
+const btn = document.querySelector(`.btn`) as HTMLButtonElement
+const originalParent = btn.parentElement
+console.log(originalParent);
 
-// const originalPrevSibiling = btn.previousElementSibling
-// console.log(originalPrevSibiling);
+const originalPrevSibiling = btn.previousElementSibling
+console.log(originalPrevSibiling);
 
-// const placeholder = document.createComment('btn-placeholder')
-// btn.before(placeholder)
-// console.log(placeholder)
+const placeholder = document.createComment('btn-placeholder')
+btn.before(placeholder)
+console.log(placeholder)
 
-// const element1 = document.querySelector(`.el1`) as HTMLDivElement
-// const element2 = document.querySelector(`.el2`) as HTMLDivElement
+const element1 = document.querySelector(`.el1`) as HTMLDivElement
+const element2 = document.querySelector(`.el2`) as HTMLDivElement
 
-// const moveBox = document.querySelector(`.move`) as HTMLDivElement
+const moveBox = document.querySelector(`.move`) as HTMLDivElement
 
-// const parentEl = document.querySelector(`.box`) as HTMLDivElement
+const parentEl = document.querySelector(`.box`) as HTMLDivElement
 
-// const MOBILE = 768
+const MOBILE = 768
 
 interface MoveElementOptions {
   target: HTMLElement;
@@ -73,166 +73,171 @@ if (targetElement && destinationElement) {
 // }
 // moveElement(moveBox)
 
-// function changeBgColorOnElement2(): void {
-//   parentEl.addEventListener('click', (e) => {
-//     const target = e.target as HTMLElement
+function changeBgColorOnElement2(): void {
+  parentEl.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
 
-//     if (target.matches('.btn')) {
-//       element2.style.backgroundColor = 'red'
-//     }
-//   });
-// }
-// changeBgColorOnElement2()
+    const btn = target.closest('.btn')
+    if (!btn) return
 
-// function addToggleOnElement1(): void {
-//   parentEl.addEventListener('click', (e) => {
-//     const target = e.target as HTMLElement
+    element2.style.backgroundColor = 'red'
 
-//     element1.classList.toggle('active')
+  });
+}
+changeBgColorOnElement2()
 
-//   });
-// }
-// addToggleOnElement1()
+function addToggleOnElement1(): void {
+  parentEl.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
 
-// btn.addEventListener('click', () => {
+    const btn = target.closest('.btn')
+    if (!btn) return
 
-//   element1.classList.toggle('active')
+    element1.classList.toggle('active')
 
-// });
+  });
+}
+addToggleOnElement1()
 
-// parentEl.addEventListener('click', (e) => {
-//   const btn = (e.target as HTMLElement).closest('.btn')
+btn.addEventListener('click', () => {
 
-//   if (!btn) return
+  element1.classList.toggle('active')
 
-//   element1.classList.toggle('active')
+});
 
-// });
+parentEl.addEventListener('click', (e) => {
+  const btn = (e.target as HTMLElement).closest('.btn')
+
+  if (!btn) return
+
+  element1.classList.toggle('active')
+
+});
 
 // ======================= 2 ==========================
-// const btnWrapper = document.querySelector(`.box2`) as HTMLElement
-// const buttons = document.querySelectorAll(`.button`) as NodeList
+const btnWrapper = document.querySelector(`.box2`) as HTMLElement
+const buttons = document.querySelectorAll(`.button`) as NodeList
 
-// buttons.forEach(btn => {
-//   btn.addEventListener('click', () => {
-//     console.log('Clicked');
-//   });
-// });
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    console.log('Clicked');
+  });
+});
 
-// btnWrapper.addEventListener('click', (e) => {
-//   const target = e.target as HTMLElement
+btnWrapper.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement
 
-//   if (target.matches('.button')) {
-//     console.log('Click');
-//   }
-// });
+  if (target.matches('.button')) {
+    console.log('Click');
+  }
+});
 
 
 
 
 //  ====================== tasks ========================
 // ====== task 1 =====
-// const cards = document.querySelector(`.cards`) as HTMLDivElement
-// if (!cards) {
-//   console.log('There is not cards');
-// } else {
-//   getTextCard(cards);
-// }
+const cards = document.querySelector(`.cards`) as HTMLDivElement
+if (!cards) {
+  console.log('There is not cards');
+} else {
+  getTextCard(cards);
+}
 
-// function getTextCard(cards: HTMLElement): void {
-//   cards.addEventListener('click', (e) => {
-//     const card = (e.target as HTMLElement).closest('.card')
-//     if (!card) return
+function getTextCard(cards: HTMLElement): void {
+  cards.addEventListener('click', (e) => {
+    const card = (e.target as HTMLElement).closest('.card')
+    if (!card) return
 
-//     console.log(`${card.textContent.trim()}`);
+    console.log(`${card.textContent.trim()}`);
 
-//   });
-// }
-// getTextCard(cards)
+  });
+}
+getTextCard(cards)
 
 // ====== task 2 =====
-// function addClassActive(cards: HTMLElement): void {
-//   const allCards = cards.querySelectorAll(`.card`)
+function addClassActive(cards: HTMLElement): void {
+  const allCards = cards.querySelectorAll(`.card`)
 
-//   cards.addEventListener('click', (e) => {
-//     const card = (e.target as HTMLElement).closest('.card')
-//     if (!card) return
+  cards.addEventListener('click', (e) => {
+    const card = (e.target as HTMLElement).closest('.card')
+    if (!card) return
 
-//     allCards.forEach(item => {
-//       item.classList.remove('active')
-//     });
-//     card.classList.add('active')
-//   });
-// }
-// addClassActive(cards)
+    allCards.forEach(item => {
+      item.classList.remove('active')
+    });
+    card.classList.add('active')
+  });
+}
+addClassActive(cards)
 // ====== task 3 =====
-// function deleteCard(cards: HTMLElement): void {
-//   cards.addEventListener('click', (e) => {
-//     const deleteBtn = (e.target as HTMLElement).closest(`.delete-btn`)
-//     if (!deleteBtn) return
+function deleteCard(cards: HTMLElement): void {
+  cards.addEventListener('click', (e) => {
+    const deleteBtn = (e.target as HTMLElement).closest(`.delete-btn`)
+    if (!deleteBtn) return
 
-//     const card = deleteBtn.closest('.card')
-//     if (!card) return
+    const card = deleteBtn.closest('.card')
+    if (!card) return
 
-//     console.log(card.textContent?.trim());
-//     card.remove()
+    console.log(card.textContent?.trim());
+    card.remove()
 
-//   });
-// }
-// deleteCard(cards)
+  });
+}
+deleteCard(cards)
 
 // ====== task 4 =====
-// const todoList = document.querySelector(`.todo-list`) as HTMLElement | null
+const todoList = document.querySelector(`.todo-list`) as HTMLElement | null
 
-// function addClassToDo(list: HTMLElement): void {
-//   list.addEventListener('click', (e) => {
-//     const clickedEl = (e.target as HTMLElement).closest('.todo-item')
-//     if (!clickedEl) return
+function addClassToDo(list: HTMLElement): void {
+  list.addEventListener('click', (e) => {
+    const clickedEl = (e.target as HTMLElement).closest('.todo-item')
+    if (!clickedEl) return
 
-//     clickedEl.classList.toggle('done')
-//   });
-// }
-// if (todoList) {
-//   addClassToDo(todoList)
-// }
+    clickedEl.classList.toggle('done')
+  });
+}
+if (todoList) {
+  addClassToDo(todoList)
+}
 
 // ====== task 5 =====
-// const menu = document.querySelector(`.menu`) as HTMLElement
+const menu = document.querySelector(`.menu`) as HTMLElement
 
-// function getItemOfMenu(menu: HTMLElement): void {
-//   menu.addEventListener('click', (e) => {
-//     const itemMenu = (e.target as HTMLElement).closest('.menu__item')
-//     if (!itemMenu) return
+function getItemOfMenu(menu: HTMLElement): void {
+  menu.addEventListener('click', (e) => {
+    const itemMenu = (e.target as HTMLElement).closest('.menu__item')
+    if (!itemMenu) return
 
-//     console.log(`${itemMenu.textContent}`);
-//     console.log(itemMenu);
+    console.log(`${itemMenu.textContent}`);
+    console.log(itemMenu);
 
-//   });
-// }
-// if (menu) {
-//   getItemOfMenu(menu)
-// }
+  });
+}
+if (menu) {
+  getItemOfMenu(menu)
+}
 
 
 // ====== task 6 =====
-// const productsItems = document.querySelector(`.products`) as HTMLElement
+const productsItems = document.querySelector(`.products`) as HTMLElement
 
-// function getDataProducts(prodList: HTMLElement): void {
-//   prodList.addEventListener('click', (e) => {
-//     const btn = (e.target as HTMLElement).closest('.add-btn')
-//     if (!btn) return
+function getDataProducts(prodList: HTMLElement): void {
+  prodList.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.add-btn')
+    if (!btn) return
 
-//     const product = btn.closest('.product') as HTMLElement | null
-//     if (!product) return
+    const product = btn.closest('.product') as HTMLElement | null
+    if (!product) return
 
-//     const productId = product.dataset.id
+    const productId = product.dataset.id
 
-//     console.log(productId);
+    console.log(productId);
 
-//   });
-// }
-// if (productsItems) {
-//   getDataProducts(productsItems)
+  });
+}
+if (productsItems) {
+  getDataProducts(productsItems)
 }
 
 
@@ -248,140 +253,140 @@ if (targetElement && destinationElement) {
 // =========================================================================
 // ========================= Data-attribures ===============================
 // =========================================================================
-// const page = document.querySelector(`.page`) as HTMLElement
-// const someBtn = document.querySelector(`.some-btn`) as HTMLButtonElement
-// if (someBtn) {
-//   const btnAction = someBtn.dataset.action
+const page = document.querySelector(`.page`) as HTMLElement
+const someBtn = document.querySelector(`.some-btn`) as HTMLButtonElement
+if (someBtn) {
+  const btnAction = someBtn.dataset.action
 
-//   delete someBtn.dataset.action
+  delete someBtn.dataset.action
 
-//   someBtn.dataset.action = 'submit'
-// }
-
-
-// function getInfoDiv(): void {
-//   const someBox = document.querySelector(`.some-box`) as HTMLElement
-
-//   page.addEventListener('click', (e) => {
-//     const someBtn = (e.target as HTMLElement).closest('.some-btn')
-//     if (someBtn) {
-//       const id = someBox.dataset.id
-//       console.log(id);
-
-//       const dataName = someBox.dataset.userName
-//       console.log(dataName);
-//     }
-//   });
-// }
-// getInfoDiv()
+  someBtn.dataset.action = 'submit'
+}
 
 
+function getInfoDiv(): void {
+  const someBox = document.querySelector(`.some-box`) as HTMLElement
 
-// const someCards = document.querySelectorAll(`.card`)
-// if (someCards) {
-//   someCards.forEach(card => {
-//     const category = (card as HTMLElement).dataset.category
-//     console.log(category);
-//   });
-// }
+  page.addEventListener('click', (e) => {
+    const someBtn = (e.target as HTMLElement).closest('.some-btn')
+    if (someBtn) {
+      const id = someBox.dataset.id
+      console.log(id);
 
-// const bodyEl = document.body
-// const wrapButtons = document.querySelector(`.wrap-buttons`) as HTMLElement
-// if (wrapButtons) {
-//   wrapButtons.addEventListener('click', (e: MouseEvent) => {
-//     const target = e.target as HTMLElement
-//     const btn = target.closest<HTMLButtonElement>('button')
-//     if (!btn) return
+      const dataName = someBox.dataset.userName
+      console.log(dataName);
+    }
+  });
+}
+getInfoDiv()
 
-//     const color = btn.dataset.color
-//     if (!color) return
 
-//     bodyEl.style.backgroundColor = color
-//   });
-// }
+
+const someCards = document.querySelectorAll(`.card`)
+if (someCards) {
+  someCards.forEach(card => {
+    const category = (card as HTMLElement).dataset.category
+    console.log(category);
+  });
+}
+
+const bodyEl = document.body
+const wrapButtons = document.querySelector(`.wrap-buttons`) as HTMLElement
+if (wrapButtons) {
+  wrapButtons.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    const btn = target.closest<HTMLButtonElement>('button')
+    if (!btn) return
+
+    const color = btn.dataset.color
+    if (!color) return
+
+    bodyEl.style.backgroundColor = color
+  });
+}
 
 
 
 // =========== filter ===========
-// const filterContainer = document.querySelector(`.wrap-filter`) as HTMLElement
+const filterContainer = document.querySelector(`.wrap-filter`) as HTMLElement
 
-// function onClick(element: HTMLElement): void {
-//   element.addEventListener('click', (e) => {
-//     const target = e.target as HTMLElement
+function onClick(element: HTMLElement): void {
+  element.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
 
-//     const btn = target.closest<HTMLButtonElement>('button')
-//     if (!btn) return
+    const btn = target.closest<HTMLButtonElement>('button')
+    if (!btn) return
 
-//     const category = btn.dataset.category
-//     if (!category) return
+    const category = btn.dataset.category
+    if (!category) return
 
-//     const cards = document.querySelectorAll<HTMLElement>(`.card-f`)
-//     cards.forEach(item => {
-//       const cardCategory = item.dataset.category
+    const cards = document.querySelectorAll<HTMLElement>(`.card-f`)
+    cards.forEach(item => {
+      const cardCategory = item.dataset.category
 
-//       // if (category === 'all') {
-//       //   item.style.display = 'block'
-//       // } else if (cardCategory === category) {
-//       //   item.style.display = 'block'
-//       // } else {
-//       //   item.style.display = 'none'
-//       // }
+      // if (category === 'all') {
+      //   item.style.display = 'block'
+      // } else if (cardCategory === category) {
+      //   item.style.display = 'block'
+      // } else {
+      //   item.style.display = 'none'
+      // }
 
-//       const showList = category === 'all' || cardCategory === category
+      const showList = category === 'all' || cardCategory === category
 
-//       item.style.display = showList ? 'block' : 'none'
-//     });
-//   });
-// }
-// onClick(filterContainer)
+      item.style.display = showList ? 'block' : 'none'
+    });
+  });
+}
+onClick(filterContainer)
 
 
 
 // ========================= dropdown ==========================
-// const dropdown = document.querySelector(`.dropdown`) as HTMLDivElement
-// const dropdownBtn = document.querySelector(`.dropdown__trigger`) as HTMLButtonElement
+const dropdown = document.querySelector(`.dropdown`) as HTMLDivElement
+const dropdownBtn = document.querySelector(`.dropdown__trigger`) as HTMLButtonElement
 
 
-// document.addEventListener('click', (e: MouseEvent) => {
-//   const target = e.target as HTMLElement;
+document.addEventListener('click', (e: MouseEvent) => {
+  const target = e.target as HTMLElement;
 
-//   const openedContents = document.querySelectorAll(`[data-dropdown-content].active`)
+  const openedContents = document.querySelectorAll(`[data-dropdown-content].active`)
 
-//   const btn = target.closest<HTMLButtonElement>('[data-dropdown-trigger]');
-//   if (!btn) {
-//     const isInsideContent = target.closest<HTMLElement>('[data-dropdown-content]')
-//     if (!isInsideContent) {
-//       openedContents.forEach((openContent) => {
-//         openContent.classList.remove('active')
-//       })
-//     }
-//     return
-//   }
+  const btn = target.closest<HTMLButtonElement>('[data-dropdown-trigger]');
+  if (!btn) {
+    const isInsideContent = target.closest<HTMLElement>('[data-dropdown-content]')
+    if (!isInsideContent) {
+      openedContents.forEach((openContent) => {
+        openContent.classList.remove('active')
+      })
+    }
+    return
+  }
 
-//   const dropdown = btn.closest<HTMLElement>('[data-dropdown]');
-//   if (!dropdown) return;
+  const dropdown = btn.closest<HTMLElement>('[data-dropdown]');
+  if (!dropdown) return;
 
-//   const content = dropdown.querySelector<HTMLElement>('[data-dropdown-content]');
-//   if (!content) return
+  const content = dropdown.querySelector<HTMLElement>('[data-dropdown-content]');
+  if (!content) return
 
-//   openedContents.forEach((openContent) => {
-//     if (openContent !== content) {
-//       openContent.classList.remove('active')
-//     }
-//   })
+  openedContents.forEach((openContent) => {
+    if (openContent !== content) {
+      openContent.classList.remove('active')
+    }
+  })
 
-//   content?.classList.toggle('active');
-// });
+  content?.classList.toggle('active');
+});
 
-// document.addEventListener('keydown', (e: KeyboardEvent) => {
-//   if (e.key !== 'Escape') return;
+document.addEventListener('keydown', (e: KeyboardEvent) => {
+  if (e.key !== 'Escape') return;
 
-//   document
-//     .querySelectorAll<HTMLElement>('[data-dropdown-content].active')
-//     .forEach((content) => {
-//       content.classList.remove('active');
-//     });
-// });
+  document
+    .querySelectorAll<HTMLElement>('[data-dropdown-content].active')
+    .forEach((content) => {
+      content.classList.remove('active');
+    });
+});
 
 
 // document.addEventListener('click', (e: MouseEvent) => {
@@ -414,3 +419,64 @@ if (targetElement && destinationElement) {
 //   content.classList.toggle('active');
 // });
 
+
+
+// =============================================================================
+// ================================ popup ======================================
+// =============================================================================
+type PopupName = string;
+
+class Popup {
+  private activePopup: HTMLElement | null = null;
+
+  constructor() {
+    this.init();
+  }
+
+  private init(): void {
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+
+      const openBtn = target.closest("[data-popup-open]") as HTMLElement | null;
+      const closeBtn = target.closest("[data-popup-close]") as HTMLElement | null;
+
+      if (openBtn) {
+        const name = openBtn.dataset.popupOpen as PopupName;
+        this.open(name);
+      }
+
+      if (closeBtn) {
+        this.close();
+      }
+
+    });
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        this.close();
+      }
+    });
+  }
+
+  private open(name: PopupName): void {
+    const popup = document.querySelector<HTMLElement>(`[data-popup="${name}"]`);
+    if (!popup) return;
+
+    this.activePopup = popup;
+
+    popup.classList.add("is-open");
+    popup.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lock");
+  }
+
+  private close(): void {
+    if (!this.activePopup) return;
+
+    this.activePopup.classList.remove("is-open");
+    this.activePopup.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("lock");
+    this.activePopup = null;
+  }
+}
+
+new Popup();

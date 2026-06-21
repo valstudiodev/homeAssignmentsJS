@@ -37,8 +37,40 @@ function visitWebsite() {
         }, 20000);
     }
 }
-visitWebsite();
-const arr = [1, 2, [3, 4], [5, [6]]];
+// visitWebsite()
+function countDown(num) {
+    if (num === 0) {
+        console.log('Finished');
+        return;
+    }
+    console.log(num);
+    countDown(num - 1);
+}
+countDown(5);
+function printNumber(num) {
+    if (num === 0) {
+        return;
+    }
+    console.log(num);
+    printNumber(num - 1);
+}
+printNumber(5);
+function repeatWord(word, count) {
+    if (count === 0)
+        return;
+    console.log(word);
+    repeatWord(word, count - 1);
+}
+repeatWord('JS', 5);
+function sum(n) {
+    if (n === 0) {
+        return console.log('Finish');
+    }
+    console.log(n);
+    return n + sum(n - 1);
+}
+sum(4);
+// const arr = [1, 2, [3, 4], [5, [6]]];
 // ================================
 // const company = [
 //   {

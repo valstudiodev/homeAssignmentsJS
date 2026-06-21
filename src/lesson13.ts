@@ -46,7 +46,58 @@ function visitWebsite(): void {
     }, 20000);
   }
 }
-visitWebsite()
+// visitWebsite()
+
+
+
+
+
+function countDown(num: number): void {
+  if (num === 0) {
+    console.log('Finished');
+    return
+  }
+  console.log(num);
+
+  countDown(num - 1)
+}
+countDown(5)
+
+
+
+function printNumber(num: number,): void {
+  if (num === 0) {
+    return
+  }
+  console.log(num);
+  printNumber(num - 1)
+
+}
+printNumber(5)
+
+
+function repeatWord(word: string, count: number): void {
+  if (count === 0) return
+
+  console.log(word);
+
+  repeatWord(word, count - 1)
+
+}
+repeatWord('JS', 5)
+
+
+function sum(n: number): number {
+  if (n === 0) {
+    return console.log('Finish');
+  }
+  console.log(n);
+
+  return n + sum(n - 1)
+
+}
+
+sum(4)
 
 
 
@@ -57,12 +108,7 @@ visitWebsite()
 
 
 
-
-
-
-
-
-const arr = [1, 2, [3, 4], [5, [6]]];
+// const arr = [1, 2, [3, 4], [5, [6]]];
 
 
 

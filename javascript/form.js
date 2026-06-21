@@ -88,3 +88,28 @@ formEmail.addEventListener('submit', (e) => {
     e.preventDefault();
     formEmail.reset();
 });
+// =============================== dynamic-form ====================================
+function createDynamicField(id, labelText, type = 'text', className) {
+    const wrapper = document.createElement('div');
+    wrapper.className = className;
+    const label = document.createElement('label');
+    label.className = `${className}__label`;
+    label.htmlFor = id;
+    label.textContent = labelText;
+    const input = document.createElement('input');
+    input.className = `${className}__input`;
+    input.type = type;
+    input.id = id;
+    input.name = id;
+    wrapper.append(label, input);
+    return wrapper;
+}
+const parentContainer = document.querySelector(`.parent-container`);
+if (parentContainer) {
+    parentContainer.style.display = 'flex';
+    parentContainer.style.flexDirection = 'column';
+    parentContainer.style.alignItems = 'flex-end';
+    parentContainer.style.gap = '10px';
+    parentContainer.append(createDynamicField('username', 'Username', 'text', 'form-username'), createDynamicField('email', 'Email', 'email', 'form-email'), createDynamicField('password', 'Password', 'password', 'form-rassword'));
+}
+// ========================
