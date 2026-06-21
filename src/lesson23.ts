@@ -100,6 +100,8 @@ class Product_ {
   }
 }
 const product1 = new Product_('Phone', 1500, 20)
+const product2 = new Product_('Laptop', 20000, 10)
+const product3 = new Product_('TV', 8000, 15)
 console.log(product1.render());
 
 class Shop {
@@ -121,7 +123,7 @@ class Shop {
           const product = this.products[index]
           const totalPrice = product.price * product.quantity
 
-          const result = `${product.name} - ${totalPrice}`
+          const result = `<p>${product.name} - ${totalPrice}</p>`
 
           index++
 
@@ -138,7 +140,7 @@ class Shop {
     }
   }
 }
-const shop = new Shop([product1])
+const shop = new Shop([product1, product2, product3])
 
 for (const item of shop) {
   document.write(`${item}`);
