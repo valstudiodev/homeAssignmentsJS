@@ -151,6 +151,7 @@ for (const item of shop) {
 // Задача 3. Створити генератор, який би випадковим чином поступово генерував вказану кількість парних чисел.
 // =================================================================================================
 document.write(`<h2>Задача 3</h2>`);
+
 function* generateEvenNumbers(count: number): Generator<number> {
   let generated: number = 0
 
@@ -172,8 +173,86 @@ for (const num of genRandomnumber) {
 
 
 
+// =====================================================================
+// ========================= Collections ===============================
+// =====================================================================
+document.write(`<h1>Collections</h1>`);
+// =================================================================================================
+// Задача 5. Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у списку і максимальне.
+// =================================================================================================
+document.write(`<h2>Задача 4</h2>`);
+
+const ages = [12, 15, 12, 17, 15, 15, 18];
 
 
+
+
+
+
+
+// =========== union ============
+const fronts = new Set(['HTML', 'CSS'])
+const backs = new Set(['Node', 'HTML'])
+
+// const allSkills = fronts.union(backs)
+// console.log([...allSkills]);
+
+// ========== intersection ============
+const frontend = new Set(["HTML", "CSS", "JS"]);
+const backend = new Set(["Node", "Python", "JS"]);
+
+// const common = frontend.intersection(backend)
+// console.log([...common]);
+
+// =========== difference ===========
+const mySkills = new Set(["JS", "TS", "CSS", "HTML"]);
+const requiredSkills = new Set(["CSS", "HTML"]);
+
+// const uniqueSkills = mySkills.difference(requiredSkills)
+// console.log([...uniqueSkills]);
+
+// ================= symmetricDifference ==================
+const packageA = new Set(["React", "Redux", "Axios"]);
+const packageB = new Set(["React", "Vue", "Axios"]);
+
+// const uniqueInEach = packageA.symmetricDifference(packageB)
+// console.log([...packageB]);
+
+// =================== isSubsetOf ==================
+const localDbs = new Set(["Postgres", "Redis"]);
+const allDbs = new Set(["Postgres", "MongoDB", "Redis", "MySQL"]);
+
+// console.log(localDbs.isSubsetOf(allDbs));
+
+// =============== isSupersetOf ==================
+const frameworkSuite = new Set(["React", "Vue", "Angular", "Svelte"]);
+const teamStack = new Set(["React", "Vue"]);
+
+// console.log(frameworkSuite.isSupersetOf(teamStack));
+
+//  ==================== isDisjointFrom ===================
+const appleDevices = new Set(["iPhone", "MacBook"]);
+const androidDevices = new Set(["Pixel", "Galaxy"]);
+
+// console.log(appleDevices.isDisjointFrom(androidDevices));
+
+
+
+
+const userRoles = new Map()
+
+const alex = { name: "Alex", age: 25 }
+const mary = { name: "Mary", age: 20 }
+
+userRoles.set(alex, 'admin')
+userRoles.set(mary, 'editor')
+
+// console.log(userRoles.get(alex));
+// console.log(userRoles.size);
+
+for (const [user, role] of userRoles.entries()) {
+  // console.log(`${user.name} - ${role}`);
+}
 
 
 

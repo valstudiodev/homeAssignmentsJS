@@ -57,90 +57,58 @@ document.addEventListener('DOMContentLoaded', () => {
 // Періодично випадковим чином вибирати якусь з справ і виводити користувачу (з використанням confirm).
 // Якщо користувач натискає на «Ок», то видаляти цю задачу.
 // =======================================================================================
-interface Todo {
-  id: number;
-  text: string;
+localStorage.setItem('tasks', JSON.stringify([
+  'Learn React',
+  'Go to gym',
+  'Read a book',
+  'Learn JS',
+  'Cook a dinner'
+]))
+
+
+function getTasks(): string[] {
+  const tasksList = localStorage.getItem('tasks')
+  if (!tasksList) return []
+
+  return JSON.parse(tasksList) as string[]
 }
 
-// Початковий масив справ, якщо localStorage порожній
-const DEFAULT_TODOS: Todo[] = [
-  { id: 1, text: "Купити молоко" },
-  { id: 2, text: "Повторити TypeScript" },
-  { id: 3, text: "Прибрати в кімнаті" },
-  { id: 4, text: "Зробити зарядку" }
-];
+function saveTasks(tasks: string[]): void {
+  const tasksArr = JSON.stringify(tasks)
 
-const STORAGE_KEY = 'todoList';
-
-// 1. Отримання справ зі сховища
-function getTasks(): Todo[] {
-  const todoListString = localStorage.getItem(STORAGE_KEY);
-
-  if (!todoListString) {
-    // Якщо порожньо, записуємо дефолтні справи та повертаємо їх
-    saveTasks(DEFAULT_TODOS);
-    return DEFAULT_TODOS;
-  }
-
-  return JSON.parse(todoListString) as Todo[];
+  localStorage.setItem('tasks', tasksArr)
 }
 
-// 2. Збереження справ у сховище
-function saveTasks(todos: Todo[]): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+function getRandomIndex(): number | null {
+  const tasks = getTasks()
+  if (tasks.length === 0) return null
+
+  const randomIndex = Math.floor(Math.random() * tasks.length)
+
+  return randomIndex
 }
 
-// 3. Вибір випадкового індексу
-function getRandomIndex(tasks: Todo[]): number {
-  return Math.floor(Math.random() * tasks.length);
+function removeTask(index: number): void {
+  const tasks = getTasks()
+
+  if (index < 0 || index >= tasks.length) return
+
+  tasks.splice(index, 1)
+
+  saveTasks(tasks)
 }
 
-// 4. Видалення справи за індексом
-function removeTaskByIndex(index: number): void {
-  const currentTasks = getTasks();
+function showRandomTask() {
+  const index = getRandomIndex()
+  if (index === null) return
 
-  // Видаляємо 1 елемент за вказаним індексом
-  currentTasks.splice(index, 1);
+  const tasks = getTasks()
+  const task = tasks[index]
 
-  // Оновлюємо localStorage
-  saveTasks(currentTasks);
+  const userAnswer = confirm(`Would you like to complete: ${task}`)
+
+  if (userAnswer)
+    removeTask(index)
 }
 
-// 5. Перевірка випадкової справи (викликається по інтервалу)
-function checkRandomTask(intervalId: number): void {
-  const currentTasks = getTasks();
-
-  // Якщо справ більше немає — зупиняємо інтервал
-  if (currentTasks.length === 0) {
-    console.log("Усі справи виконано!");
-    clearInterval(intervalId);
-    return;
-  }
-
-  const randomIndex = getRandomIndex(currentTasks);
-  const randomTask = currentTasks[randomIndex];
-
-  // Показуємо вікно підтвердження
-  const isConfirmed = confirm(`Бажаєте видалити виконану справу: "${randomTask.text}"?`);
-
-  if (isConfirmed) {
-    removeTaskByIndex(randomIndex);
-    console.log(`Справу "${randomTask.text}" видалено.`);
-  }
-}
-
-// 6. Ініціалізація та запуск додатка
-function initApp(): void {
-  console.log("Додаток запущено. Очікуйте вибору справи...");
-
-  // Створюємо змінну для ID інтервалу, щоб передати її всередину функції
-  let intervalId: number;
-
-  // Запуск перевірки кожні 5 секунд (5000 мс)
-  intervalId = window.setInterval(() => {
-    checkRandomTask(intervalId);
-  }, 5000);
-}
-
-// Запуск програми
-initApp();
+const userInput = showRandomTask()
