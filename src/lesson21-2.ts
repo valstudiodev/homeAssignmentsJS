@@ -6,12 +6,36 @@
 // виправити оцінку (якщо оцінка погана і це не останній місяць у семестрі) .
 // Обробку усіх помилок зробити з використанням відповідних класів.
 
-// class ValidationError {
-//   constructor(parameters) {
+class ValidationError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'ValidationError'
+  }
+}
 
-//   }
-// }
+class StudentPerformance {
+  private vacationMonths: number[] = [6, 7, 8]
 
+  private validateMonth() {
+    try {
+      if (condition) {
+
+      }
+    } catch (error) {
+
+    }
+  }
+
+  private validateGrade() {
+
+  }
+
+  public canImproveGrade() {
+
+  }
+
+
+}
 
 
 

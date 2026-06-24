@@ -57,9 +57,6 @@ class PhoneNumber {
     return this.formatNumber();
 
   }
-  // toString() {
-  //   return ` ${this.getOperator()}: ${this.value}}`
-  // }
 }
 
 const phoneUser = new PhoneNumber('0976123445')
@@ -178,11 +175,224 @@ for (const num of genRandomnumber) {
 // =====================================================================
 document.write(`<h1>Collections</h1>`);
 // =================================================================================================
-// Задача 5. Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у списку і максимальне.
+// Задача 4. Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у списку і максимальне.
 // =================================================================================================
 document.write(`<h2>Задача 4</h2>`);
 
-const ages = [12, 15, 12, 17, 15, 15, 18];
+const ages = [12, 15, 12, 17, 15, 15, 18, 18];
+
+function getCountValues(arr: number[]): Map<number, number> {
+  const mapStudents = new Map<number, number>()
+  let max = -Infinity
+
+  arr.forEach(age => {
+    if (age > max) max = age
+
+    mapStudents.set(age, (mapStudents.get(age) || 0) + 1)
+  });
+
+  return mapStudents
+}
+function showResult() {
+  const students = getCountValues(ages)
+
+  students.forEach((value, key) => {
+    document.write(`<p>${key}: ${value}</p>`);
+  });
+}
+showResult()
+
+
+// =================================================================================================
+// Задача 5.  Дано масив книг (назва, рік видання, автор). Підрахувати кількість книг для кожного автора.
+// =================================================================================================
+document.write(`<h2>Задача 5</h2>`);
+
+type Book_ = {
+  title: string,
+  year: number,
+  author: string,
+}
+
+const books: Book_[] = [
+  { title: "Clean Code", year: 2008, author: "Robert C. Martin" },
+  { title: "Clean Architecture", year: 2017, author: "Robert C. Martin" },
+  { title: "You Don't Know JS", year: 2015, author: "Kyle Simpson" },
+  { title: "JavaScript: The Good Parts", year: 2008, author: "Douglas Crockford" },
+  { title: "Eloquent JavaScript", year: 2018, author: "Marijn Haverbeke" },
+  { title: "Effective TypeScript", year: 2019, author: "Dan Vanderkam" },
+  { title: "JavaScript Patterns", year: 2010, author: "Stoyan Stefanov" },
+  { title: "Refactoring", year: 2018, author: "Martin Fowler" },
+  { title: "Refactoring UI", year: 2019, author: "Adam Wathan" },
+  { title: "Design Patterns", year: 1994, author: "Erich Gamma" },
+  { title: "Patterns of Enterprise Application Architecture", year: 2002, author: "Martin Fowler" },
+  { title: "Domain-Driven Design", year: 2003, author: "Eric Evans" }
+];
+
+function getAmountbooks(books: Book_[]): Map<string, number> {
+  const mapBooks = new Map<string, number>()
+
+  for (const book of books) {
+    const author = book.author
+
+    mapBooks.set(author, (mapBooks.get(author) || 0) + 1)
+  }
+
+  return mapBooks
+}
+
+function showResultBooks() {
+  const result = getAmountbooks(books)
+
+  // result.forEach((value, key) => {
+  //   document.write(`<p>${key} : ${value}</p>`);
+  // });
+
+  for (const [author, count] of result) {
+    document.write(`<p>${author} : ${count}</p>`);
+  }
+}
+showResultBooks()
+
+
+// =================================================================================================
+// Задача 6. Дано інформацію про відвідувачів деякого сайту (для кожного відвідувача зберігається логін). 
+// Підрахувати для кожного клієнта кількість відвідувань.
+// =================================================================================================
+document.write(`<h2>Задача 6</h2>`);
+const visits = [
+  "Alex",
+  "John",
+  "Alex",
+  "Maria",
+  "John",
+  "Alex"
+]
+
+function getVisitsUsers(visits: string[]): Map<string, number> {
+  const mapVisits = new Map<string, number>()
+
+  for (const login of visits) {
+    if (mapVisits.has(login)) {
+      mapVisits.set(login, (mapVisits.get(login) || 0) + 1)
+    } else
+      mapVisits.set(login, 1)
+  }
+
+  return mapVisits
+}
+
+function renderInfoUsersVisits(): void {
+  const resultVisits = getVisitsUsers(visits)
+
+  for (const [name, count] of resultVisits) {
+    document.write(`<p>Name: ${name}, visits: ${count}</p>`);
+  }
+}
+renderInfoUsersVisits()
+
+
+// =================================================================================================
+// Задача 7. Дано масив студентів (піб, курс, факультет). 
+// Підрахувати кількість різних факультетів, та кількість студентів кожного з курсів. 
+// =================================================================================================
+document.write(`<h2>Задача 7</h2>`);
+
+type Student_ = {
+  fullName: string,
+  course: number,
+  faculty: string,
+}
+
+const students: Student_[] = [
+  { fullName: "Ivan Petrenko", course: 1, faculty: "IT" },
+  { fullName: "Anna Kovalenko", course: 2, faculty: "Math" },
+  { fullName: "Oleh Ivanov", course: 1, faculty: "IT" },
+  { fullName: "Maria Shevchenko", course: 3, faculty: "Physics" },
+  { fullName: "Dmytro Bondar", course: 2, faculty: "Math" }
+]
+
+function getCountFaculty(students: Student_[]) {
+  const faculties = new Set<string>()
+  const courses = new Map<number, number>()
+
+  for (const student of students) {
+    faculties.add(student.faculty)
+    courses.set(student.course, (courses.get(student.course) || 0) + 1)
+  }
+
+  return {
+    faculties: faculties.size,
+    courses
+  }
+}
+
+function showCountOfStudents(): void {
+  const result = getCountFaculty(students)
+
+  result.courses.forEach((count, course) => {
+    document.write(`<p>Course: ${course}, qauntity: ${count}</p>`);
+  });
+}
+showCountOfStudents()
+
+
+// =================================================================================================
+// Задача 8. Дано масив показів температур. Підрахувати кількість входжень кожного із показів
+// let temperatures = [12.4, 24.9, 10.6, 12.4, 24.9, 12.4, 10.6, 11.9]
+// Заокруглити вверх значення та підрахувати кількість різних показів.
+// =================================================================================================
+document.write(`<h2>Задача 8</h2>`);
+
+let temperatures = [12.4, 24.9, 10.6, 12.4, 24.9, 12.4, 10.6, 11.9];
+
+function getTempratures(arrTemp: number[]): Map<number, number> {
+  const map = new Map<number, number>()
+
+  arrTemp.forEach(temp => {
+    const value = Math.ceil(temp)
+
+    map.set(value, (map.get(value) || 0) + 1)
+  });
+
+  return map
+}
+
+const resultTemp = getTempratures(temperatures)
+
+resultTemp.forEach((count, temp) => {
+  document.write(`<p>Temprature: ${temp}, count: ${count}</p>`);
+});
+
+
+// =================================================================================================
+// Задача 9 Дано два списки прізвищ студентів, що відвідують гуртки з математики і історії. 
+// Підрахувати скільки студентів з гуртка з історії також відвідують гурток з математики. 
+// Також підрахувати скільки всього студентів відвідують хоча б один гурток.
+// =================================================================================================
+document.write(`<h2>Задача 9</h2>`);
+
+const mathGroup = ["Ivan", "Oleh", "Anna", "Maria"]
+const historyGroup = ["Oleh", "Maria", "Petro", "Sofia"]
+
+function getStudentsGroup(group: string[]): Set<string> {
+  return new Set(group)
+}
+const groupA = getStudentsGroup(mathGroup)
+const groupB = getStudentsGroup(historyGroup)
+
+function getIntersectionStudents(groupA: Set<string>, groupB: Set<string>) {
+  return [...groupA].filter(s => groupB.has(s))
+}
+const studentsIntersection = getIntersectionStudents(groupA, groupB)
+document.write(`<p>${studentsIntersection}</p>`);
+
+function getUnionStudents(groupA: Set<string>, groupB: Set<string>) {
+  const studentsUnion = new Set([...groupA, ...groupB])
+  return studentsUnion.size
+}
+const studentsUnion = getUnionStudents(groupA, groupB)
+document.write(`${studentsUnion}`);
 
 
 
@@ -190,6 +400,10 @@ const ages = [12, 15, 12, 17, 15, 15, 18];
 
 
 
+
+// =====================================================================
+// =========================== Collections =============================
+// =====================================================================
 // =========== union ============
 const fronts = new Set(['HTML', 'CSS'])
 const backs = new Set(['Node', 'HTML'])
@@ -235,28 +449,6 @@ const appleDevices = new Set(["iPhone", "MacBook"]);
 const androidDevices = new Set(["Pixel", "Galaxy"]);
 
 // console.log(appleDevices.isDisjointFrom(androidDevices));
-
-
-
-
-const userRoles = new Map()
-
-const alex = { name: "Alex", age: 25 }
-const mary = { name: "Mary", age: 20 }
-
-userRoles.set(alex, 'admin')
-userRoles.set(mary, 'editor')
-
-// console.log(userRoles.get(alex));
-// console.log(userRoles.size);
-
-for (const [user, role] of userRoles.entries()) {
-  // console.log(`${user.name} - ${role}`);
-}
-
-
-
-
 
 
 
@@ -491,6 +683,126 @@ for (const number of numbers) {
 }
 
 
+// =====================================================================
+// ================================ MAP ================================
+// =====================================================================
+// =========
+const map = new Map()
+
+map.set("a", 1)
+map.set(123, 'number key')
+map.set({ id: 1 }, "object key")
+
+for (const [key, value] of map) {
+  // console.log(key, value);
+}
+
+// =========
+const map2 = new Map<string, number>([
+  ["html", 80],
+  ["css", 70],
+]);
+
+for (const [key, value] of map2) {
+  // console.log(key, value);
+}
+for (const value of map2.values()) {
+  // console.log(value);
+}
+for (const key of map2.keys()) {
+  // console.log(key);
+}
+
+// =========
+const map3 = new Map()
+
+map3.set('a', 1)
+map3.set('b', 2)
+
+map3.set('a', 10)
+
+map3.delete('b')
+
+for (const [key, value] of map3) {
+  // console.log(key, value);
+}
+
+const aValue = map3.get('a')
+// console.log(aValue);
+
+const hasA = map3.has('a')
+// console.log(hasA);
+
+const size = map3.size
+// console.log(size);
+
+map3.clear()
+
+// console.log(map3);
+
+
+// ===============
+const someUsers = new Map()
+
+someUsers.set(1, 'Alex')
+someUsers.set(2, 'Jonh')
+someUsers.set(3, 'Maria')
+
+const user2 = someUsers.get(2)
+// console.log('User 2:', user2);
+
+const hasUser3 = someUsers.has(3)
+// console.log('Has user 3:', hasUser3);
+
+someUsers.delete(1)
+
+for (const [id, name] of someUsers) {
+  // console.log(id, name);
+}
+
+
+//  task 4
+const scores = new Map<string, number>([
+  ["html", 80],
+  ["css", 70],
+  ["js", 95],
+]);
+
+for (const [key, value] of scores) {
+  // console.log(key, value);
+}
+
+
+// let maxKey: string | null = null
+// let maxValue = -Infinity
+
+// for (const [key, value] of scores) {
+//   if (value > maxValue) {
+//     maxValue = value
+//     maxKey = key
+//   }
+// }
+
+// console.log('MAX:', maxKey, maxValue);
+
+
+
+
+
+// =====================================================================
+// ================================ SET ================================
+// =====================================================================
+
+const set = new Set([1, 2, 2, 3, 3, 3])
+
+for (const value of set) {
+  // console.log(value);
+
+}
+
+
+
+
 
 
 
@@ -564,7 +876,7 @@ function* generator2() {
   yield 3
 }
 
-const [a, b] = generator2()
+// const [a, b] = generator2()
 // console.log(a, b);
 
 
