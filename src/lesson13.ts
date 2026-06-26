@@ -2,33 +2,55 @@
 // Задача 2.  Дано масив імен спортсменів. Розробити програму для виведення усіх 
 // можливих результатів змагань (списки імен у відповідності до місць, які вони займуть).
 // ========================================================================================
-// const athletesCompetition: string[] = ["Олександр", "Марія", "Дмитро", "Анна"];
+const athletesCompetition: string[] = ["Олександр", "Марія", "Дмитро", "Анна"];
 
-// function getAthletesListCompetition(list: string[]): string[][] {
-//   if (list.length === 1)
-//     return [list]
+function getAthletesListCompetition(list: string[]): string[][] {
+  if (list.length === 1)
+    return [list]
 
-//   const allResult: string[][] = []
+  const allResult: string[][] = []
 
-//   for (let i = 0; i < list.length; i++) {
-//     const currentAthlete = list[i]
-//     const leftAthletes = list.filter((_, index) => index !== i)
+  for (let i = 0; i < list.length; i++) {
+    const currentAthlete = list[i]
+    const leftAthletes = list.filter((_, index) => index !== i)
 
-//     const subResults = getAthletesListCompetition(leftAthletes)
+    const subResults = getAthletesListCompetition(leftAthletes)
 
-//     for (const combination of subResults) {
-//       const newVariation = [currentAthlete, ...combination]
+    for (const combination of subResults) {
+      const newVariation = [currentAthlete, ...combination]
 
-//       allResult.push(newVariation)
-//     }
-//   }
+      allResult.push(newVariation)
+    }
+  }
 
-//   return allResult
-// }
+  return allResult
+}
 
-// const athletesList = getAthletesListCompetition(athletesCompetition)
+const athletesList = getAthletesListCompetition(athletesCompetition)
+console.log(athletesList);
 
-// console.log(athletesList);
+
+// ========================================================================================
+// Задача 4. Дано масив хлопців і дівчат вивести всі можливі комбінації для танців з хлопців і дівчат.
+// ========================================================================================
+const boys = ["Іван", "Петро", "Олег"];
+const girls = ["Анна", "Марія"];
+
+function getDancePairs(boys: string[], girls: string[], boyIndex: number = 0): string[][] {
+  if (boyIndex >= boys.length)
+    return [];
+
+  const pairs: string[][] = [];
+
+  for (const girl of girls) {
+    pairs.push([boys[boyIndex], girl]);
+  }
+
+  return [...pairs, ...getDancePairs(boys, girls, boyIndex + 1)];
+}
+
+const dancePairs = getDancePairs(boys, girls);
+console.log(dancePairs);
 
 
 // ========================================================================================
@@ -46,7 +68,16 @@ function visitWebsite(): void {
     }, 20000);
   }
 }
-// visitWebsite()
+visitWebsite()
+
+
+
+
+
+
+
+
+
 
 
 
@@ -61,7 +92,7 @@ function countDown(num: number): void {
 
   countDown(num - 1)
 }
-countDown(5)
+// countDown(5)
 
 
 
@@ -73,7 +104,7 @@ function printNumber(num: number,): void {
   printNumber(num - 1)
 
 }
-printNumber(5)
+// printNumber(5)
 
 
 function repeatWord(word: string, count: number): void {
@@ -84,7 +115,7 @@ function repeatWord(word: string, count: number): void {
   repeatWord(word, count - 1)
 
 }
-repeatWord('JS', 5)
+// repeatWord('JS', 5)
 
 
 function sum(n: number): number {
@@ -97,7 +128,7 @@ function sum(n: number): number {
 
 }
 
-sum(4)
+// sum(4)
 
 
 
