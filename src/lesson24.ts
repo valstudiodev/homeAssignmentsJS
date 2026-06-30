@@ -89,24 +89,41 @@ const app = new App(apiService, renderService)
 app.start()
 
 
-
-const item = {
-  fact: "Cats sleep 70% of their lives.",
-  length: 33
-}
-
-
-
-
-
-
-
-
-
-
 // =====================================================================
 // =========================== async-await =============================
 // =====================================================================
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
+async function getUserPost(): Promise<void> {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
+    if (!response.ok) throw new Error("Server Error");
+
+    const user = await response.json()
+
+    const responsePost = await fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
+    if (!responsePost.ok) throw new Error("Server Error");
+
+    const userPosts: Post[] = await responsePost.json()
+
+    const titles: string[] = userPosts.map(post => post.title)
+
+    for (const post of titles) {
+      console.log(` ${user.name} - ${post}`);
+    }
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+// getUserPost()
+
+
+// ========================================
 interface User {
   id: number;
   name: string;
@@ -163,36 +180,7 @@ async function getAllUsers(): Promise<void> {
 // getAllUsers()
 
 
-// ========================================
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-}
 
-async function getUserPost(): Promise<void> {
-  try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users/1')
-    if (!response.ok) throw new Error("Server Error");
-
-    const user = await response.json()
-
-    const responsePost = await fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-    if (!responsePost.ok) throw new Error("Server Error");
-
-    const userPosts: Post[] = await responsePost.json()
-
-    const titles: string[] = userPosts.map(post => post.title)
-
-    for (const post of titles) {
-      console.log(` ${user.name} - ${post}`);
-    }
-
-  } catch (error) {
-    console.error(error);
-  }
-}
-// getUserPost()
 
 // ========================================
 async function getUserAllPosts(): Promise<void> {
