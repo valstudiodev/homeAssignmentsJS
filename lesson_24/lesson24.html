@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 24</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(135deg,
+            #0F172A,
+            #111827,
+            #1E293B);
+      }
+
+      .wrapper {
+        padding-inline: 15px;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+        gap: 24px;
+      }
+
+      .title {
+        margin: 0;
+        padding-top: 20px;
+        margin-bottom: 50px;
+        font-size: 40px;
+        text-align: center;
+        color: #F8FAFC;
+      }
+
+      .fact-card {
+        background-color: #1A2236;
+        border: 1px solid #334155;
+        border-radius: 20px;
+        padding: 24px;
+        transition: all 0.3s;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .fact-card:hover {
+        translate: 0 -6px;
+        cursor: pointer;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, .45);
+        border-color: #38BDF8;
+      }
+
+      .fact-card__title {
+        color: #F8FAFC;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+
+      .fact-card__text {
+        margin: 0;
+        color: #CBD5E1;
+        font-size: 16px;
+        line-height: 1.7;
+        flex-grow: 1;
+      }
+
+      .fact-card__length {
+        color: #38BDF8;
+        font-weight: 600;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header></header>
+
+      <main class="page-lesson">
+        <div class="page-lesson__container">
+          <h2 class='title'>10 Facts about cats</h2>
+          <div class="container">
+
+
+          </div>
+        </div>
+
+        <script>
+
+
+
+
+        </script>
+
+      </main>
+
+      <footer></footer>
+    </div>
+
+
+    <script src="../javascript/lesson24.js"></script>
+  </body>
+</html>

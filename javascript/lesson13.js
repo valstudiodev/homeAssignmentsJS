@@ -53,7 +53,7 @@ function visitWebsite() {
         }, 20000);
     }
 }
-visitWebsite();
+// visitWebsite()
 function countDown(num) {
     if (num === 0) {
         console.log('Finished');
@@ -80,7 +80,7 @@ function repeatWord(word, count) {
 // repeatWord('JS', 5)
 function sum(n) {
     if (n === 0) {
-        return console.log('Finish');
+        return 0;
     }
     console.log(n);
     return n + sum(n - 1);
@@ -134,21 +134,22 @@ function sum(n) {
 // }
 // const mainResult = getAllNames(company);
 // ================================
-// const box = {
-//   content: {
-//     content: {
-//       content: 500 // Скарб тут!
-//     }
-//   }
-// };
-// function findTreasure(obj: any) {
-//   // 1. Якщо всередині число — поверни його (Базовий випадок)
-//   if (typeof obj === 'number') return obj
-//   // 2. Інакше — викликай findTreasure для того, що всередині (Рекурсія)
-//   return findTreasure(obj)
-// }
-// const treasure = findTreasure(box)
-// console.log(treasure);
+const box = {
+    content: {
+        content: {
+            content: 500 // Скарб тут!
+        }
+    }
+};
+function findTreasure(obj) {
+    // 1. Якщо всередині число — поверни його (Базовий випадок)
+    if (typeof obj === 'number')
+        return obj;
+    // 2. Інакше — викликай findTreasure для того, що всередині (Рекурсія)
+    return findTreasure(obj.content);
+}
+const treasure = findTreasure(box);
+console.log(treasure);
 // type MenuItem = {
 //   title: string
 //   link: string

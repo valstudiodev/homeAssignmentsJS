@@ -68,7 +68,7 @@ function visitWebsite(): void {
     }, 20000);
   }
 }
-visitWebsite()
+// visitWebsite()
 
 
 
@@ -120,12 +120,11 @@ function repeatWord(word: string, count: number): void {
 
 function sum(n: number): number {
   if (n === 0) {
-    return console.log('Finish');
+    return 0
   }
   console.log(n);
 
   return n + sum(n - 1)
-
 }
 
 // sum(4)
@@ -200,22 +199,22 @@ function sum(n: number): number {
 
 
 // ================================
-// const box = {
-//   content: {
-//     content: {
-//       content: 500 // Скарб тут!
-//     }
-//   }
-// };
-// function findTreasure(obj: any) {
-//   // 1. Якщо всередині число — поверни його (Базовий випадок)
-//   if (typeof obj === 'number') return obj
+const box = {
+  content: {
+    content: {
+      content: 500 // Скарб тут!
+    }
+  }
+};
+function findTreasure(obj: any) {
+  // 1. Якщо всередині число — поверни його (Базовий випадок)
+  if (typeof obj === 'number') return obj
 
-//   // 2. Інакше — викликай findTreasure для того, що всередині (Рекурсія)
-//   return findTreasure(obj)
-// }
-// const treasure = findTreasure(box)
-// console.log(treasure);
+  // 2. Інакше — викликай findTreasure для того, що всередині (Рекурсія)
+  return findTreasure(obj.content)
+}
+const treasure = findTreasure(box)
+console.log(treasure);
 
 
 
